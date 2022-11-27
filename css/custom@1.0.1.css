@@ -758,44 +758,40 @@ c-player.cp-big .cp-poster {
 }
 
 #content-inner.layout h1::before {
-    color: #ef50a8;
-    margin-left: -31px;
-    font-size: 26px;
-    margin-top: -5px
+    color: #ef50a8 ;
+    margin-left: -1.55rem;
+    font-size: 1.5rem;
+    margin-top: -0.23rem;
 }
-
 #content-inner.layout h2::before {
-    color: #fb7061;
-    margin-left: -27px;
-    font-size: 22px;
-    margin-top: -3px
+    color: #fb7061 ;
+    margin-left: -1.35rem;
+    font-size: 1.3rem;
+    margin-top: -0.12rem;
 }
-
 #content-inner.layout h3::before {
-    color: #ffbf00;
-    margin-left: -25px;
-    font-size: 20px;
-    margin-top: -2px
+    color: #ffbf00 ;
+    margin-left: -1.22rem;
+    font-size: 1.15rem;
+    margin-top: -0.09rem;
 }
-
 #content-inner.layout h4::before {
-    color: #a9e000;
-    font-size: 16px;
-    margin-top: -2px
+    color: #a9e000 ;
+    margin-left: -1.05rem;
+    font-size: 1.0rem;
+    margin-top: -0.00rem;
 }
-
 #content-inner.layout h5::before {
-    color: #57c850;
-    margin-left: -18px;
-    font-size: 14px;
-    margin-top: 0
+    color: #57c850 ;
+    margin-left: -0.9rem;
+    font-size: 0.9rem;
+    margin-top: 0.0rem;
 }
-
 #content-inner.layout h6::before {
-    color: #5ec1e0;
-    margin-left: -18px;
-    font-size: 13px;
-    margin-top: 0
+    color: #5ec1e0 ;
+    margin-left: -0.9rem;
+    font-size: 0.86rem;
+    margin-top: 0.0rem;
 }
 
 #rightside_config i.fas.fa-cog.fa-spin {
