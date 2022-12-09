@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>FTP配置-本地用户 | 做 讓 人 远 远 聽 見 的 風</title><meta name="author" content="JieLun"><meta name="copyright" content="JieLun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="安装vsftpdyum install -y vsftpdsystemctl enable vsftpd.servicesystemctl start vsftpd.servicenetstat -antup | grep ftp  添加FTP用户并修改密码[root@localhost ~]# adduser ftp22[root@localhost ~]# passwd ftp22  为FTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FTP配置-本地用户">
+<meta property="og:url" content="https://jielunya.github.io/2022/12/09/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/index.html">
+<meta property="og:site_name" content="做 讓 人 远 远 聽 見 的 風">
+<meta property="og:description" content="安装vsftpdyum install -y vsftpdsystemctl enable vsftpd.servicesystemctl start vsftpd.servicenetstat -antup | grep ftp  添加FTP用户并修改密码[root@localhost ~]# adduser ftp22[root@localhost ~]# passwd ftp22  为FTP">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jielunya.github.io/assets/18.jpg">
+<meta property="article:published_time" content="2022-12-09T07:01:39.277Z">
+<meta property="article:modified_time" content="2022-12-09T07:33:49.317Z">
+<meta property="article:author" content="JieLun">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jielunya.github.io/assets/18.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://jielunya.github.io/2022/12/09/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'FTP配置-本地用户',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-09 15:33:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="https://cyan-blog.oss-cn-shenzhen.aliyuncs.com/cdn/js/three.min.js"></script><link rel="stylesheet" href="/css/transpancy.css"><link rel="stylesheet" href="/css/custom@1.0.2.css"><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/myStyle.css"><link rel="stylesheet" href="/css/foot.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="做 讓 人 远 远 聽 見 的 風" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="https://s1.ax1x.com/2022/11/19/zKAYTI.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于作者</span></a></div></div></div></div><div class="canvas-container" id="canvas"></div><div class="cherry-container" id="jsi-cherry-container"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/assets/18.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">做 讓 人 远 远 聽 見 的 風</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于作者</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">FTP配置-本地用户</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-09T07:01:39.277Z" title="发表于 2022-12-09 15:01:39">2022-12-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-09T07:33:49.317Z" title="更新于 2022-12-09 15:33:49">2022-12-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y vsftpd</span><br><span class="line">systemctl enable vsftpd.service</span><br><span class="line">systemctl start vsftpd.service</span><br><span class="line">netstat -antup | grep ftp</span><br></pre></td></tr></table></figure>
+<p><img src="/img/loading.gif" data-original="/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/1.png"></p>
+<h2 id="添加FTP用户并修改密码"><a href="#添加FTP用户并修改密码" class="headerlink" title="添加FTP用户并修改密码"></a>添加FTP用户并修改密码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# adduser ftp22</span><br><span class="line">[root@localhost ~]# passwd ftp22</span><br></pre></td></tr></table></figure>
+<p><img src="/img/loading.gif" data-original="/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/2.png"></p>
+<h2 id="为FTP用户创建文件夹及文件"><a href="#为FTP用户创建文件夹及文件" class="headerlink" title="为FTP用户创建文件夹及文件"></a>为FTP用户创建文件夹及文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# mkdir /var/ftp/22</span><br><span class="line">[root@localhost ~]# touch /var/ftp/22/22.txt</span><br></pre></td></tr></table></figure>
+<h2 id="将目录以及其子目录下的所有文件归属者改成需要设置给予权限的用户"><a href="#将目录以及其子目录下的所有文件归属者改成需要设置给予权限的用户" class="headerlink" title="将目录以及其子目录下的所有文件归属者改成需要设置给予权限的用户"></a>将目录以及其子目录下的所有文件归属者改成需要设置给予权限的用户</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# chown -R ftp22:ftp22 /var/ftp/22</span><br></pre></td></tr></table></figure>
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# systemctl stop firewalld</span><br><span class="line">[root@localhost ~]# systemctl disabled firewalld</span><br></pre></td></tr></table></figure>
+<h2 id="配置vsftpd-conf文件"><a href="#配置vsftpd-conf文件" class="headerlink" title="配置vsftpd.conf文件"></a>配置vsftpd.conf文件</h2><blockquote>vsftpd.conf里面主要包括安全配置，传输，用户还有权限等相关的选项</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/vsftpd/vsftpd.conf</span><br></pre></td></tr></table></figure>
+<blockquote>除下面提及的参数，其他参数保持默认值即可。</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#修改下列参数的值：</span><br><span class="line">#禁止匿名登录FTP服务器。</span><br><span class="line">anonymous_enable=NO</span><br><span class="line">#允许本地用户登录FTP服务器。</span><br><span class="line">local_enable=YES</span><br><span class="line">#监听IPv4 sockets。</span><br><span class="line">listen=YES</span><br><span class="line"></span><br><span class="line">#在行首添加#注释掉以下参数：</span><br><span class="line">#关闭监听IPv6 sockets。</span><br><span class="line">#listen_ipv6=YES</span><br><span class="line"></span><br><span class="line">#在配置文件的末尾添加下列参数：</span><br><span class="line">#设置本地用户登录后所在目录。</span><br><span class="line">local_root=/var/ftp/22</span><br><span class="line">#全部用户被限制在主目录。</span><br><span class="line">chroot_local_user=YES</span><br><span class="line">#启用例外用户名单。</span><br><span class="line">chroot_list_enable=YES</span><br><span class="line">#指定例外用户列表文件，列表中用户不被锁定在主目录。</span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list</span><br><span class="line">#开启被动模式。</span><br><span class="line">pasv_enable=YES</span><br><span class="line">allow_writeable_chroot=YES</span><br><span class="line">#本教程中为Linux实例的公网IP。</span><br><span class="line">pasv_address=&lt;FTP服务器公网IP地址&gt;</span><br><span class="line">#设置被动模式下，建立数据传输可使用的端口范围的最小值。</span><br><span class="line">#建议您把端口范围设置在一段比较高的范围内，例如50000~50010，有助于提高访问FTP服务器的安全性。</span><br><span class="line">pasv_min_port=50000</span><br><span class="line">#设置被动模式下，建立数据传输可使用的端口范围的最大值。</span><br><span class="line">pasv_max_port=50010</span><br></pre></td></tr></table></figure>
+<blockquote>总配置：</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Example config file /etc/vsftpd/vsftpd.conf</span><br><span class="line">#</span><br><span class="line"># The default compiled in settings are fairly paranoid. This sample file</span><br><span class="line"># loosens things up a bit, to make the ftp daemon more usable.</span><br><span class="line"># Please see vsftpd.conf.5 for all compiled in defaults.</span><br><span class="line">#</span><br><span class="line"># READ THIS: This example file is NOT an exhaustive list of vsftpd options.</span><br><span class="line"># Please read the vsftpd.conf.5 manual page to get a full idea of vsftpd&#x27;s</span><br><span class="line"># capabilities.</span><br><span class="line">#</span><br><span class="line"># Allow anonymous FTP? (Beware - allowed by default if you comment this out).</span><br><span class="line">anonymous_enable=NO</span><br><span class="line">#</span><br><span class="line"># Uncomment this to allow local users to log in.</span><br><span class="line"># When SELinux is enforcing check for SE bool ftp_home_dir</span><br><span class="line">local_enable=YES</span><br><span class="line">#</span><br><span class="line"># Uncomment this to enable any form of FTP write command.</span><br><span class="line">write_enable=YES</span><br><span class="line">#</span><br><span class="line"># Default umask for local users is 077. You may wish to change this to 022,</span><br><span class="line"># if your users expect that (022 is used by most other ftpd&#x27;s)</span><br><span class="line">local_umask=022</span><br><span class="line">#</span><br><span class="line"># Uncomment this to allow the anonymous FTP user to upload files. This only</span><br><span class="line"># has an effect if the above global write enable is activated. Also, you will</span><br><span class="line"># obviously need to create a directory writable by the FTP user.</span><br><span class="line"># When SELinux is enforcing check for SE bool allow_ftpd_anon_write, allow_ftpd_full_access</span><br><span class="line">#anon_upload_enable=YES</span><br><span class="line">#</span><br><span class="line"># Uncomment this if you want the anonymous FTP user to be able to create</span><br><span class="line"># new directories.</span><br><span class="line">#anon_mkdir_write_enable=YES</span><br><span class="line">#</span><br><span class="line"># Activate directory messages - messages given to remote users when they</span><br><span class="line"># go into a certain directory.</span><br><span class="line">dirmessage_enable=YES</span><br><span class="line">#</span><br><span class="line"># Activate logging of uploads/downloads.</span><br><span class="line">xferlog_enable=YES</span><br><span class="line">#</span><br><span class="line"># Make sure PORT transfer connections originate from port 20 (ftp-data).</span><br><span class="line">connect_from_port_20=YES</span><br><span class="line">#</span><br><span class="line"># If you want, you can arrange for uploaded anonymous files to be owned by</span><br><span class="line"># a different user. Note! Using &quot;root&quot; for uploaded files is not</span><br><span class="line"># recommended!</span><br><span class="line">#chown_uploads=YES</span><br><span class="line">#chown_username=whoever</span><br><span class="line">#</span><br><span class="line"># You may override where the log file goes if you like. The default is shown</span><br><span class="line"># below.</span><br><span class="line">#xferlog_file=/var/log/xferlog</span><br><span class="line">#</span><br><span class="line"># If you want, you can have your log file in standard ftpd xferlog format.</span><br><span class="line"># Note that the default log file location is /var/log/xferlog in this case.</span><br><span class="line">xferlog_std_format=YES</span><br><span class="line">#</span><br><span class="line"># You may change the default value for timing out an idle session.</span><br><span class="line">#idle_session_timeout=600</span><br><span class="line">#</span><br><span class="line"># You may change the default value for timing out a data connection.</span><br><span class="line">#data_connection_timeout=120</span><br><span class="line">#</span><br><span class="line"># It is recommended that you define on your system a unique user which the</span><br><span class="line"># ftp server can use as a totally isolated and unprivileged user.</span><br><span class="line">#nopriv_user=ftpsecure</span><br><span class="line">#</span><br><span class="line"># Enable this and the server will recognise asynchronous ABOR requests. Not</span><br><span class="line"># recommended for security (the code is non-trivial). Not enabling it,</span><br><span class="line"># however, may confuse older FTP clients.</span><br><span class="line">#async_abor_enable=YES</span><br><span class="line">#</span><br><span class="line"># By default the server will pretend to allow ASCII mode but in fact ignore</span><br><span class="line"># the request. Turn on the below options to have the server actually do ASCII</span><br><span class="line"># mangling on files when in ASCII mode. The vsftpd.conf(5) man page explains</span><br><span class="line"># the behaviour when these options are disabled.</span><br><span class="line"># Beware that on some FTP servers, ASCII support allows a denial of service</span><br><span class="line"># attack (DoS) via the command &quot;SIZE /big/file&quot; in ASCII mode. vsftpd</span><br><span class="line"># predicted this attack and has always been safe, reporting the size of the</span><br><span class="line"># raw file.</span><br><span class="line"># ASCII mangling is a horrible feature of the protocol.</span><br><span class="line">#ascii_upload_enable=YES</span><br><span class="line">#ascii_download_enable=YES</span><br><span class="line">#</span><br><span class="line"># You may fully customise the login banner string:</span><br><span class="line">#ftpd_banner=Welcome to blah FTP service.</span><br><span class="line">#</span><br><span class="line"># You may specify a file of disallowed anonymous e-mail addresses. Apparently</span><br><span class="line"># useful for combatting certain DoS attacks.</span><br><span class="line">#deny_email_enable=YES</span><br><span class="line"># (default follows)</span><br><span class="line">#banned_email_file=/etc/vsftpd/banned_emails</span><br><span class="line">#</span><br><span class="line"># You may specify an explicit list of local users to chroot() to their home</span><br><span class="line"># directory. If chroot_local_user is YES, then this list becomes a list of</span><br><span class="line"># users to NOT chroot().</span><br><span class="line"># (Warning! chroot&#x27;ing can be very dangerous. If using chroot, make sure that</span><br><span class="line"># the user does not have write access to the top level directory within the</span><br><span class="line"># chroot)</span><br><span class="line">#chroot_local_user=YES</span><br><span class="line">#chroot_list_enable=YES</span><br><span class="line"># (default follows)</span><br><span class="line">#chroot_list_file=/etc/vsftpd/chroot_list</span><br><span class="line">#</span><br><span class="line"># You may activate the &quot;-R&quot; option to the builtin ls. This is disabled by</span><br><span class="line"># default to avoid remote users being able to cause excessive I/O on large</span><br><span class="line"># sites. However, some broken FTP clients such as &quot;ncftp&quot; and &quot;mirror&quot; assume</span><br><span class="line"># the presence of the &quot;-R&quot; option, so there is a strong case for enabling it.</span><br><span class="line">#ls_recurse_enable=YES</span><br><span class="line">#</span><br><span class="line"># When &quot;listen&quot; directive is enabled, vsftpd runs in standalone mode and</span><br><span class="line"># listens on IPv4 sockets. This directive cannot be used in conjunction</span><br><span class="line"># with the listen_ipv6 directive.</span><br><span class="line">listen=YES</span><br><span class="line">#</span><br><span class="line"># This directive enables listening on IPv6 sockets. By default, listening</span><br><span class="line"># on the IPv6 &quot;any&quot; address (::) will accept connections from both IPv6</span><br><span class="line"># and IPv4 clients. It is not necessary to listen on *both* IPv4 and IPv6</span><br><span class="line"># sockets. If you want that (perhaps because you want to listen on specific</span><br><span class="line"># addresses) then you must run two copies of vsftpd with two configuration</span><br><span class="line"># files.</span><br><span class="line"># Make sure, that one of the listen options is commented !!</span><br><span class="line">#listen_ipv6=YES</span><br><span class="line"></span><br><span class="line">pam_service_name=vsftpd</span><br><span class="line">userlist_enable=YES</span><br><span class="line">tcp_wrappers=YES</span><br><span class="line">#在配置文件的末尾添加下列参数：</span><br><span class="line">##设置本地用户登录后所在目录。</span><br><span class="line">local_root=/var/ftp/22</span><br><span class="line">##全部用户被限制在主目录。</span><br><span class="line">chroot_local_user=YES</span><br><span class="line">##启用例外用户名单。</span><br><span class="line">chroot_list_enable=YES</span><br><span class="line">##指定例外用户列表文件，列表中用户不被锁定在主目录。</span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list</span><br><span class="line">#开启被动模式。</span><br><span class="line">pasv_enable=YES</span><br><span class="line">allow_writeable_chroot=YES</span><br><span class="line">##本教程中为Linux实例的公网IP。</span><br><span class="line">pasv_address=100.26.28.49</span><br><span class="line">##设置被动模式下，建立数据传输可使用的端口范围的最小值。</span><br><span class="line">##建议您把端口范围设置在一段比较高的范围内，例如50000~50010，有助于提高访问FTP服务器的安全性。</span><br><span class="line">pasv_min_port=50000</span><br><span class="line">##设置被动模式下，建立数据传输可使用的端口范围的最大值。</span><br><span class="line">pasv_max_port=50010</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置例外用户名单"><a href="#配置例外用户名单" class="headerlink" title="配置例外用户名单"></a>配置例外用户名单</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/vsftpd/chroot_list</span><br></pre></td></tr></table></figure>
+<blockquote>添加用户，此处我是ftp22。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/3.png"></p>
+<h2 id="重启vsftpd服务"><a href="#重启vsftpd服务" class="headerlink" title="重启vsftpd服务"></a>重启vsftpd服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart vsftpd.service</span><br></pre></td></tr></table></figure>
+<h2 id="创建文件，测试验证。"><a href="#创建文件，测试验证。" class="headerlink" title="创建文件，测试验证。"></a>创建文件，测试验证。</h2><blockquote>cmd命令行，输入ftp加空格接上对应ip地址，登录ftp。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/4.png"><br><img src="/img/loading.gif" data-original="/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/5.png"><br><img src="/img/loading.gif" data-original="/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/6.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# touch /var/ftp/22/yjs213-22-pjl.txt</span><br></pre></td></tr></table></figure>
+<p><img src="/img/loading.gif" data-original="/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/7.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://jielunya.github.io">JieLun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jielunya.github.io/2022/12/09/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/">https://jielunya.github.io/2022/12/09/FTP配置-本地用户/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jielunya.github.io" target="_blank">做 讓 人 远 远 聽 見 的 風</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post_share"><div class="social-share" data-image="/assets/18.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/12/08/%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/"><img class="next-cover" src="/img/loading.gif" data-original="/assets/17.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">云主机应用部署</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/12/08/%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/" title="云主机应用部署"><img class="cover" src="/img/loading.gif" data-original="/assets/17.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-08</div><div class="title">云主机应用部署</div></div></a></div><div><a href="/2022/12/07/Openstack%E4%BA%91%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/" title="Openstack云平台的基础运维"><img class="cover" src="/img/loading.gif" data-original="/assets/16.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-07</div><div class="title">Openstack云平台的基础运维</div></div></a></div><div><a href="/2022/11/26/%E6%90%AD%E5%BB%BAopenstack%E5%B9%B3%E5%8F%B0/" title="搭建openstack平台"><img class="cover" src="/img/loading.gif" data-original="/assets/13.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-26</div><div class="title">搭建openstack平台</div></div></a></div><div><a href="/2022/11/23/%E5%90%84%E7%A7%8Dlinux%E7%9A%84%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/" title="各种linux的密码重置"><img class="cover" src="/img/loading.gif" data-original="/assets/12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-23</div><div class="title">各种linux的密码重置</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="https://s1.ax1x.com/2022/11/19/zKAYTI.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JieLun</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Jielunya"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你又来偷偷看我啦( ´͈ ᵕ `͈ )◞♡</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85vsftpd"><span class="toc-number">1.</span> <span class="toc-text">安装vsftpd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0FTP%E7%94%A8%E6%88%B7%E5%B9%B6%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">添加FTP用户并修改密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BAFTP%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8F%8A%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">为FTP用户创建文件夹及文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E7%9B%AE%E5%BD%95%E4%BB%A5%E5%8F%8A%E5%85%B6%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%BD%92%E5%B1%9E%E8%80%85%E6%94%B9%E6%88%90%E9%9C%80%E8%A6%81%E8%AE%BE%E7%BD%AE%E7%BB%99%E4%BA%88%E6%9D%83%E9%99%90%E7%9A%84%E7%94%A8%E6%88%B7"><span class="toc-number">4.</span> <span class="toc-text">将目录以及其子目录下的所有文件归属者改成需要设置给予权限的用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">5.</span> <span class="toc-text">关闭防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEvsftpd-conf%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">配置vsftpd.conf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BE%8B%E5%A4%96%E7%94%A8%E6%88%B7%E5%90%8D%E5%8D%95"><span class="toc-number">7.</span> <span class="toc-text">配置例外用户名单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%90%AFvsftpd%E6%9C%8D%E5%8A%A1"><span class="toc-number">8.</span> <span class="toc-text">重启vsftpd服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B5%8B%E8%AF%95%E9%AA%8C%E8%AF%81%E3%80%82"><span class="toc-number">9.</span> <span class="toc-text">创建文件，测试验证。</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/09/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/" title="FTP配置-本地用户"><img src="/img/loading.gif" data-original="/assets/18.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FTP配置-本地用户"/></a><div class="content"><a class="title" href="/2022/12/09/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/" title="FTP配置-本地用户">FTP配置-本地用户</a><time datetime="2022-12-09T07:01:39.277Z" title="发表于 2022-12-09 15:01:39">2022-12-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/08/%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/" title="云主机应用部署"><img src="/img/loading.gif" data-original="/assets/17.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="云主机应用部署"/></a><div class="content"><a class="title" href="/2022/12/08/%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/" title="云主机应用部署">云主机应用部署</a><time datetime="2022-12-08T13:35:27.246Z" title="发表于 2022-12-08 21:35:27">2022-12-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/07/Openstack%E4%BA%91%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/" title="Openstack云平台的基础运维"><img src="/img/loading.gif" data-original="/assets/16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Openstack云平台的基础运维"/></a><div class="content"><a class="title" href="/2022/12/07/Openstack%E4%BA%91%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/" title="Openstack云平台的基础运维">Openstack云平台的基础运维</a><time datetime="2022-12-07T15:03:22.283Z" title="发表于 2022-12-07 23:03:22">2022-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/02/Hydra%E5%B8%B8%E7%94%A8%E7%88%86%E7%A0%B4%E8%AF%AD%E5%8F%A5/" title="Hydra常用爆破语句"><img src="/img/loading.gif" data-original="/assets/15.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hydra常用爆破语句"/></a><div class="content"><a class="title" href="/2022/12/02/Hydra%E5%B8%B8%E7%94%A8%E7%88%86%E7%A0%B4%E8%AF%AD%E5%8F%A5/" title="Hydra常用爆破语句">Hydra常用爆破语句</a><time datetime="2022-12-02T04:46:28.616Z" title="发表于 2022-12-02 12:46:28">2022-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/02/Windows%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/" title="Windows网络命令"><img src="/img/loading.gif" data-original="/assets/14.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows网络命令"/></a><div class="content"><a class="title" href="/2022/12/02/Windows%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/" title="Windows网络命令">Windows网络命令</a><time datetime="2022-12-02T04:29:48.675Z" title="发表于 2022-12-02 12:29:48">2022-12-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By JieLun</div><a href="https://jielunya.github.io/">| 回到首页 |</a><span class="footer-separator"></span></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lYh5FaNQ1BZ91AnnMwXvpfdH-gzGzoHsz',
+      appKey: 'WcwABcRIFzBCppEfa2FauntP',
+      avatar: 'monsterid',
+      serverURLs: 'https://lyh5fanq.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/fairyDustCursor.js"></script><script async data-pjax src="/js/sky.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
