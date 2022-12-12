@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jielunya.github.io/about/index.html</loc>
+    <loc>https://jielunya.github.io/2022/12/12/%E6%90%AD%E5%BB%BA%E4%B8%89%E4%B8%AATomcat%EF%BC%8C%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</loc>
+    
+    <lastmod>2022-12-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jielunya.github.io/2022/12/12/%E5%9F%BA%E4%BA%8E%E5%9F%9F%E5%90%8D%E7%9A%84%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%9A%84%E9%85%8D%E7%BD%AE-nginx/</loc>
+    
+    <lastmod>2022-12-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jielunya.github.io/2022/12/12/%E6%90%AD%E5%BB%BAnginx/</loc>
     
     <lastmod>2022-12-12</lastmod>
     
@@ -13,7 +31,16 @@
   <url>
     <loc>https://jielunya.github.io/2022/12/11/%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%85%8D%E7%BD%AEMysql%E6%9C%8D%E5%8A%A1/</loc>
     
-    <lastmod>2022-12-11</lastmod>
+    <lastmod>2022-12-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jielunya.github.io/about/index.html</loc>
+    
+    <lastmod>2022-12-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
