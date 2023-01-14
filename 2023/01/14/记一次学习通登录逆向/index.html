@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>记一次学习通登录逆向 | 做 讓 人 远 远 聽 見 的 風</title><meta name="author" content="JieLun杰伦"><meta name="copyright" content="JieLun杰伦"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="打开浏览器，进入学习通登录页面。F12——随便输入账号密码点击登录——网络——fanyalogin–负载，这里发现uname和password使用了加密手段进行加密。   尝试搜索password了解使用什么加密手段。 这里找到了一个encryptByAES()函数，看起来像是加密方式，第一个参数为密码，第二个参数为密钥。   点击进去，跳转到源代码界面。看到了像是密钥的字符串transferKe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次学习通登录逆向">
+<meta property="og:url" content="https://jielunya.github.io/2023/01/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E7%99%BB%E5%BD%95%E9%80%86%E5%90%91/index.html">
+<meta property="og:site_name" content="做 讓 人 远 远 聽 見 的 風">
+<meta property="og:description" content="打开浏览器，进入学习通登录页面。F12——随便输入账号密码点击登录——网络——fanyalogin–负载，这里发现uname和password使用了加密手段进行加密。   尝试搜索password了解使用什么加密手段。 这里找到了一个encryptByAES()函数，看起来像是加密方式，第一个参数为密码，第二个参数为密钥。   点击进去，跳转到源代码界面。看到了像是密钥的字符串transferKe">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jielunya.github.io/assets/59.png">
+<meta property="article:published_time" content="2023-01-14T07:34:03.000Z">
+<meta property="article:modified_time" content="2023-01-14T09:30:58.288Z">
+<meta property="article:author" content="JieLun杰伦">
+<meta property="article:tag" content="逆向">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jielunya.github.io/assets/59.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://jielunya.github.io/2023/01/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E7%99%BB%E5%BD%95%E9%80%86%E5%90%91/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '记一次学习通登录逆向',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-01-14 17:30:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="https://cyan-blog.oss-cn-shenzhen.aliyuncs.com/cdn/js/three.min.js"></script><link rel="stylesheet" href="/css/transpancy.css"><link rel="stylesheet" href="/css/custom@1.0.2.css"><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/myStyle.css"><link rel="stylesheet" href="/css/foot.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="做 讓 人 远 远 聽 見 的 風" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于作者</span></a></div></div></div></div><div class="canvas-container" id="canvas"></div><div class="cherry-container" id="jsi-cherry-container"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/assets/59.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">做 讓 人 远 远 聽 見 的 風</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于作者</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">记一次学习通登录逆向</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-14T07:34:03.000Z" title="发表于 2023-01-14 15:34:03">2023-01-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-14T09:30:58.288Z" title="更新于 2023-01-14 17:30:58">2023-01-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>打开浏览器，进入学习通登录页面。F12——随便输入账号密码点击登录——网络——fanyalogin–负载，这里发现uname和password使用了加密手段进行加密。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/1.png"></p>
+<blockquote>尝试搜索password了解使用什么加密手段。</blockquote>
+<blockquote>这里找到了一个encryptByAES()函数，看起来像是加密方式，第一个参数为密码，第二个参数为密钥。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/2.png"></p>
+<blockquote>点击进去，跳转到源代码界面。看到了像是密钥的字符串transferKey = "u2oh6Vu^HWe4_AES"</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/3.png"></p>
+<blockquote>为了验证密钥是否真实，再次搜索encryptByAES，找到它加密的方法。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/4.png"></p>
+<blockquote>同样点进去，在加密方法的返回值return处下个断点。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/5.png"></p>
+<blockquote>点击登录，发现已经断下来了，F9，单步走。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/6.png"><br><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/7.png"></p>
+<blockquote>到这已经证实了猜想。下面复现一下它的加密过程，将encryptByAES的方法复制到在线js运行工具里调试。在原来的基础上加上一句代码调用它的方法，console.log(encryptByAES('123','u2oh6Vu^HWe4_AES'));</blockquote>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">encryptByAES</span>(<span class="params">message, key</span>)&#123;</span><br><span class="line">	<span class="keyword">let</span> <span class="title class_">CBCOptions</span> = &#123;</span><br><span class="line">		<span class="attr">iv</span>: <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(key),</span><br><span class="line">		<span class="attr">mode</span>:<span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">CBC</span>,</span><br><span class="line">		<span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span></span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">let</span> aeskey = <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(key);</span><br><span class="line">	<span class="keyword">let</span> secretData = <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(message);</span><br><span class="line">	<span class="keyword">let</span> encrypted = <span class="title class_">CryptoJS</span>.<span class="property">AES</span>.<span class="title function_">encrypt</span>(</span><br><span class="line">		secretData,</span><br><span class="line">		aeskey,</span><br><span class="line">		<span class="title class_">CBCOptions</span></span><br><span class="line">	);</span><br><span class="line">	<span class="keyword">return</span> <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Base64</span>.<span class="title function_">stringify</span>(encrypted.<span class="property">ciphertext</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">encryptByAES</span>(<span class="string">&#x27;123&#x27;</span>,<span class="string">&#x27;u2oh6Vu^HWe4_AES&#x27;</span>));</span><br></pre></td></tr></table></figure>
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/8.png"><br><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/9.png"></p>
+<blockquote>此时发现报错了运行不了，提示CryptoJS未定义。回去源代码处，查到它在哪里会有CrytoJS，找到了之后点进去。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/10.png"><br><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/11.png"></p>
+<blockquote>点进来发现代码好多，不方便分析，干脆直接全部复制下来，放到原来encryptByAES方法的上面，再次点运行，发现没有报错，运行结果也与实际一致。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/12.png"></p>
+<blockquote>为了方便，可以用python进行加解密的复现。</blockquote>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> <span class="title class_">Crypto</span>.<span class="property">Cipher</span> <span class="keyword">import</span> <span class="variable constant_">AES</span></span><br><span class="line"></span><br><span class="line"><span class="variable constant_">AESKEY</span> = <span class="string">&#x27;u2oh6Vu^HWe4_AES&#x27;</span>  # 密钥</span><br><span class="line"><span class="variable constant_">AESIV</span> = <span class="string">&#x27;u2oh6Vu^HWe4_AES&#x27;</span>  # 和<span class="variable constant_">KEY</span>保持一致即可</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AESTool</span>:</span><br><span class="line">    def <span class="title function_">__init__</span>(self):</span><br><span class="line">        self.<span class="property">key</span> = <span class="variable constant_">AESKEY</span>.<span class="title function_">encode</span>(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        self.<span class="property">iv</span> = <span class="variable constant_">AESIV</span>.<span class="title function_">encode</span>(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    def <span class="title function_">pkcs7padding</span>(self, text):</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        明文使用PKCS7填充</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        bs = <span class="number">16</span></span><br><span class="line">        length = <span class="title function_">len</span>(text)</span><br><span class="line">        bytes_length = <span class="title function_">len</span>(text.<span class="title function_">encode</span>(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        padding_size = length <span class="keyword">if</span> (bytes_length == length) <span class="keyword">else</span> bytes_length</span><br><span class="line">        padding = bs - padding_size % bs</span><br><span class="line">        padding_text = <span class="title function_">chr</span>(padding) * padding</span><br><span class="line">        self.<span class="property">coding</span> = <span class="title function_">chr</span>(padding)</span><br><span class="line">        <span class="keyword">return</span> text + padding_text</span><br><span class="line"></span><br><span class="line">    def <span class="title function_">aes_encrypt</span>(self, content):</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        AES加密</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        cipher = <span class="variable constant_">AES</span>.<span class="title function_">new</span>(self.<span class="property">key</span>, <span class="variable constant_">AES</span>.<span class="property">MODE_CBC</span>, self.<span class="property">iv</span>)</span><br><span class="line">        # 处理明文</span><br><span class="line">        content_padding = self.<span class="title function_">pkcs7padding</span>(content)</span><br><span class="line">        # 加密</span><br><span class="line">        encrypt_bytes = cipher.<span class="title function_">encrypt</span>(content_padding.<span class="title function_">encode</span>(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        # 重新编码</span><br><span class="line">        result = <span class="title function_">str</span>(base64.<span class="title function_">b64encode</span>(encrypt_bytes), encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    def <span class="title function_">aes_decrypt</span>(self, content):</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        AES解密</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        cipher = <span class="variable constant_">AES</span>.<span class="title function_">new</span>(self.<span class="property">key</span>, <span class="variable constant_">AES</span>.<span class="property">MODE_CBC</span>, self.<span class="property">iv</span>)</span><br><span class="line">        content = base64.<span class="title function_">b64decode</span>(content)</span><br><span class="line">        text = cipher.<span class="title function_">decrypt</span>(content).<span class="title function_">decode</span>(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> self.<span class="title function_">pkcs7padding</span>(text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = <span class="title class_">AESTool</span>() #实例化一个对象</span><br><span class="line">    username=a.<span class="title function_">aes_encrypt</span>(<span class="title function_">input</span>(<span class="string">&#x27;用户名:&#x27;</span>)) #调用<span class="keyword">class</span>中<span class="title class_">AESTool</span>里的aes_encrypt方法</span><br><span class="line">    pwd=a.<span class="title function_">aes_encrypt</span>(<span class="title function_">input</span>(<span class="string">&#x27;密码:&#x27;</span>))</span><br><span class="line">    aes_username = username #这里传一下值给另一个变量，待会要用到</span><br><span class="line">    aes_pwd = pwd</span><br><span class="line">    <span class="title function_">print</span>(<span class="string">&#x27;加密后的用户名:&#x27;</span>+aes_username)</span><br><span class="line">    <span class="title function_">print</span>(<span class="string">&#x27;加密后的密码:&#x27;</span>+aes_pwd)</span><br></pre></td></tr></table></figure>
+<blockquote>加密后结果一致。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/13.png"></p>
+<blockquote>那么如何使用python实现学习通登录呢？先看看正常登录成功发送的表单。</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/14.png"></p>
+<blockquote>利用python的requests构造请求，编写的完整代码如下。</blockquote>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> <span class="title class_">Crypto</span>.<span class="property">Cipher</span> <span class="keyword">import</span> <span class="variable constant_">AES</span></span><br><span class="line"></span><br><span class="line"><span class="variable constant_">AESKEY</span> = <span class="string">&#x27;u2oh6Vu^HWe4_AES&#x27;</span>  # 密钥</span><br><span class="line"><span class="variable constant_">AESIV</span> = <span class="string">&#x27;u2oh6Vu^HWe4_AES&#x27;</span>  # 和<span class="variable constant_">KEY</span>保持一直即可</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AESTool</span>:</span><br><span class="line">    def <span class="title function_">__init__</span>(self):</span><br><span class="line">        self.<span class="property">key</span> = <span class="variable constant_">AESKEY</span>.<span class="title function_">encode</span>(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        self.<span class="property">iv</span> = <span class="variable constant_">AESIV</span>.<span class="title function_">encode</span>(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    def <span class="title function_">pkcs7padding</span>(self, text):</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        明文使用PKCS7填充</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        bs = <span class="number">16</span></span><br><span class="line">        length = <span class="title function_">len</span>(text)</span><br><span class="line">        bytes_length = <span class="title function_">len</span>(text.<span class="title function_">encode</span>(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        padding_size = length <span class="keyword">if</span> (bytes_length == length) <span class="keyword">else</span> bytes_length</span><br><span class="line">        padding = bs - padding_size % bs</span><br><span class="line">        padding_text = <span class="title function_">chr</span>(padding) * padding</span><br><span class="line">        self.<span class="property">coding</span> = <span class="title function_">chr</span>(padding)</span><br><span class="line">        <span class="keyword">return</span> text + padding_text</span><br><span class="line"></span><br><span class="line">    def <span class="title function_">aes_encrypt</span>(self, content):</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        AES加密</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        cipher = <span class="variable constant_">AES</span>.<span class="title function_">new</span>(self.<span class="property">key</span>, <span class="variable constant_">AES</span>.<span class="property">MODE_CBC</span>, self.<span class="property">iv</span>)</span><br><span class="line">        # 处理明文</span><br><span class="line">        content_padding = self.<span class="title function_">pkcs7padding</span>(content)</span><br><span class="line">        # 加密</span><br><span class="line">        encrypt_bytes = cipher.<span class="title function_">encrypt</span>(content_padding.<span class="title function_">encode</span>(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        # 重新编码</span><br><span class="line">        result = <span class="title function_">str</span>(base64.<span class="title function_">b64encode</span>(encrypt_bytes), encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    def <span class="title function_">aes_decrypt</span>(self, content):</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        AES解密</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        cipher = <span class="variable constant_">AES</span>.<span class="title function_">new</span>(self.<span class="property">key</span>, <span class="variable constant_">AES</span>.<span class="property">MODE_CBC</span>, self.<span class="property">iv</span>)</span><br><span class="line">        content = base64.<span class="title function_">b64decode</span>(content)</span><br><span class="line">        text = cipher.<span class="title function_">decrypt</span>(content).<span class="title function_">decode</span>(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> self.<span class="title function_">pkcs7padding</span>(text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = <span class="title class_">AESTool</span>() #实例化一个对象</span><br><span class="line">    username=a.<span class="title function_">aes_encrypt</span>(<span class="title function_">input</span>(<span class="string">&#x27;用户名:&#x27;</span>)) #调用<span class="keyword">class</span>中<span class="title class_">AESTool</span>里的aes_encrypt方法</span><br><span class="line">    pwd=a.<span class="title function_">aes_encrypt</span>(<span class="title function_">input</span>(<span class="string">&#x27;密码:&#x27;</span>))</span><br><span class="line">    aes_username = username #这里传一下值给另一个变量，待会要用到</span><br><span class="line">    aes_pwd = pwd</span><br><span class="line">    <span class="title function_">print</span>(<span class="string">&#x27;加密后的用户名:&#x27;</span>+aes_username)</span><br><span class="line">    <span class="title function_">print</span>(<span class="string">&#x27;加密后的密码:&#x27;</span>+aes_pwd)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">session = requests.<span class="title function_">session</span>()</span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;Host&quot;</span>: <span class="string">&quot;passport2.chaoxing.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Connection&quot;</span>: <span class="string">&quot;keep-alive&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Content-Length&quot;</span>: <span class="string">&quot;248&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sec-ch-ua&quot;</span>: <span class="string">&quot;\&quot;Chromium\&quot;;v=\&quot;106\&quot;, \&quot;Microsoft Edge\&quot;;v=\&quot;106\&quot;, \&quot;Not;A=Brand\&quot;;v=\&quot;99\&quot;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Accept&quot;</span>: <span class="string">&quot;application/json, text/javascript, */*; q=0.01&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/x-www-form-urlencoded; charset=UTF-8&quot;</span>,</span><br><span class="line">    <span class="string">&quot;X-Requested-With&quot;</span>: <span class="string">&quot;XMLHttpRequest&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sec-ch-ua-mobile&quot;</span>: <span class="string">&quot;?0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 Edg/106.0.1370.52&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sec-ch-ua-platform&quot;</span>: <span class="string">&quot;\&quot;Windows\&quot;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Origin&quot;</span>: <span class="string">&quot;https://passport2.chaoxing.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Sec-Fetch-Site&quot;</span>: <span class="string">&quot;same-origin&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Sec-Fetch-Mode&quot;</span>: <span class="string">&quot;cors&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Sec-Fetch-Dest&quot;</span>: <span class="string">&quot;empty&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Referer&quot;</span>: <span class="string">&quot;https://passport2.chaoxing.com/login?fid=&amp;newversion=true&amp;refer=https://i.chaoxing.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Accept-Encoding&quot;</span>: <span class="string">&quot;gzip, deflate, br&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Accept-Language&quot;</span>: <span class="string">&quot;zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Cookie&quot;</span>: <span class="string">&quot;fid=23194; route=52ffa9af7a380e114204ed76732d509c; JSESSIONID=F7C40528A60B7D04420D26319385CD5A; source=\&quot;\&quot;&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">url = <span class="string">&quot;https://passport2.chaoxing.com/fanyalogin&quot;</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&quot;fid&quot;</span>: <span class="string">&quot;-1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;uname&quot;</span>: aes_username,</span><br><span class="line">    <span class="string">&quot;password&quot;</span>: aes_pwd,</span><br><span class="line">    <span class="string">&quot;refer&quot;</span>: <span class="string">&quot;http%3A%2F%2Fi.chaoxing.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;t&quot;</span>: <span class="string">&quot;true&quot;</span>,</span><br><span class="line">    <span class="string">&quot;forbidotherlogin&quot;</span>: <span class="string">&quot;0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;validate&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;doubleFactorLogin&quot;</span>: <span class="string">&quot;0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;independentId&quot;</span>: <span class="string">&quot;0&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">session.<span class="property">headers</span> = headers</span><br><span class="line">response = session.<span class="title function_">post</span>(url, headers=headers, data=data)</span><br><span class="line"><span class="title function_">print</span>(<span class="string">&#x27;登陆中......&#x27;</span>)</span><br><span class="line"><span class="title function_">print</span>(response.<span class="property">text</span>)</span><br><span class="line"><span class="title function_">print</span>(response)</span><br></pre></td></tr></table></figure>
+
+<blockquote>到这里已经成功登录了！！！</blockquote>
+
+<p><img src="/img/loading.gif" data-original="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E9%80%86%E5%90%91/15.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://jielunya.github.io">JieLun杰伦</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jielunya.github.io/2023/01/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E7%99%BB%E5%BD%95%E9%80%86%E5%90%91/">https://jielunya.github.io/2023/01/14/记一次学习通登录逆向/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jielunya.github.io" target="_blank">做 讓 人 远 远 聽 見 的 風</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%80%86%E5%90%91/">逆向</a></div><div class="post_share"><div class="social-share" data-image="/assets/59.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/01/12/weevely%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/"><img class="next-cover" src="/img/loading.gif" data-original="/assets/58.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">weevely工具的使用</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JieLun杰伦</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Jielunya"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你又来偷偷看我啦( ´͈ ᵕ `͈ )◞♡</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E7%99%BB%E5%BD%95%E9%80%86%E5%90%91/" title="记一次学习通登录逆向"><img src="/img/loading.gif" data-original="/assets/59.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记一次学习通登录逆向"/></a><div class="content"><a class="title" href="/2023/01/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E7%99%BB%E5%BD%95%E9%80%86%E5%90%91/" title="记一次学习通登录逆向">记一次学习通登录逆向</a><time datetime="2023-01-14T07:34:03.000Z" title="发表于 2023-01-14 15:34:03">2023-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/12/weevely%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" title="weevely工具的使用"><img src="/img/loading.gif" data-original="/assets/58.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="weevely工具的使用"/></a><div class="content"><a class="title" href="/2023/01/12/weevely%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" title="weevely工具的使用">weevely工具的使用</a><time datetime="2023-01-12T14:24:03.249Z" title="发表于 2023-01-12 22:24:03">2023-01-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/24/%E5%88%A9%E7%94%A8MSF%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E6%8F%90%E6%9D%83/" title="利用MSF进行系统提权"><img src="/img/loading.gif" data-original="/assets/45.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用MSF进行系统提权"/></a><div class="content"><a class="title" href="/2022/12/24/%E5%88%A9%E7%94%A8MSF%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E6%8F%90%E6%9D%83/" title="利用MSF进行系统提权">利用MSF进行系统提权</a><time datetime="2022-12-24T13:09:38.000Z" title="发表于 2022-12-24 21:09:38">2022-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/19/MSF%E3%81%AEreverse_tcp%E5%8F%8D%E5%90%91%E8%BF%9E%E6%8E%A5/" title="MSFのreverse_tcp反向连接"><img src="/img/loading.gif" data-original="/assets/44.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MSFのreverse_tcp反向连接"/></a><div class="content"><a class="title" href="/2022/12/19/MSF%E3%81%AEreverse_tcp%E5%8F%8D%E5%90%91%E8%BF%9E%E6%8E%A5/" title="MSFのreverse_tcp反向连接">MSFのreverse_tcp反向连接</a><time datetime="2022-12-19T14:38:03.000Z" title="发表于 2022-12-19 22:38:03">2022-12-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/16/MS08_067%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0(xp%E7%B3%BB%E7%BB%9F%E6%B8%97%E9%80%8F%EF%BC%89/" title="MS08_067漏洞复现(xp系统渗透）"><img src="/img/loading.gif" data-original="/assets/41.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MS08_067漏洞复现(xp系统渗透）"/></a><div class="content"><a class="title" href="/2022/12/16/MS08_067%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0(xp%E7%B3%BB%E7%BB%9F%E6%B8%97%E9%80%8F%EF%BC%89/" title="MS08_067漏洞复现(xp系统渗透）">MS08_067漏洞复现(xp系统渗透）</a><time datetime="2022-12-16T12:46:03.000Z" title="发表于 2022-12-16 20:46:03">2022-12-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By JieLun杰伦</div><a href="https://jielunya.github.io/">| 回到首页 |</a><span class="footer-separator"></span></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lYh5FaNQ1BZ91AnnMwXvpfdH-gzGzoHsz',
+      appKey: 'WcwABcRIFzBCppEfa2FauntP',
+      avatar: 'monsterid',
+      serverURLs: 'https://lyh5fanq.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/fairyDustCursor.js"></script><script async data-pjax src="/js/sky.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
