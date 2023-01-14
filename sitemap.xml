@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jielunya.github.io/about/index.html</loc>
+    
+    <lastmod>2023-01-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jielunya.github.io/2023/01/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E7%99%BB%E5%BD%95%E9%80%86%E5%90%91/</loc>
     
     <lastmod>2023-01-14</lastmod>
@@ -102,15 +111,6 @@
   
   <url>
     <loc>https://jielunya.github.io/2022/12/11/%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%85%8D%E7%BD%AEMysql%E6%9C%8D%E5%8A%A1/</loc>
-    
-    <lastmod>2022-12-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jielunya.github.io/about/index.html</loc>
     
     <lastmod>2022-12-12</lastmod>
     

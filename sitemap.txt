@@ -1,3 +1,4 @@
+https://jielunya.github.io/about/index.html
 https://jielunya.github.io/2023/01/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E9%80%9A%E7%99%BB%E5%BD%95%E9%80%86%E5%90%91/
 https://jielunya.github.io/2022/11/19/%E7%BD%AE%E9%A1%B6%E7%9A%84%E6%96%87%E7%AB%A0/
 https://jielunya.github.io/2023/01/12/weevely%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/
@@ -10,7 +11,6 @@ https://jielunya.github.io/2022/12/12/%E6%90%AD%E5%BB%BA%E4%B8%89%E4%B8%AATomcat
 https://jielunya.github.io/2022/12/12/%E5%9F%BA%E4%BA%8E%E5%9F%9F%E5%90%8D%E7%9A%84%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%9A%84%E9%85%8D%E7%BD%AE-nginx/
 https://jielunya.github.io/2022/12/12/%E6%90%AD%E5%BB%BAnginx/
 https://jielunya.github.io/2022/12/11/%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%85%8D%E7%BD%AEMysql%E6%9C%8D%E5%8A%A1/
-https://jielunya.github.io/about/index.html
 https://jielunya.github.io/2022/12/11/%E6%90%AD%E5%BB%BAweb%E6%9C%8D%E5%8A%A1%E5%99%A8/
 https://jielunya.github.io/2022/12/09/FTP%E9%85%8D%E7%BD%AE-%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7/
 https://jielunya.github.io/2022/12/08/%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/
