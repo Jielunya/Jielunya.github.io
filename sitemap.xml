@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://jielunya.github.io/Mikutap/index.html</loc>
+    
+    <lastmod>2023-01-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jielunya.github.io/2022/12/13/%E4%BD%BF%E7%94%A8MSF%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E6%B8%97%E9%80%8F%EF%BC%88%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D%EF%BC%89/</loc>
     
     <lastmod>2023-01-15</lastmod>
@@ -230,6 +239,24 @@
     <loc>https://jielunya.github.io/PY.html</loc>
     
     <lastmod>2022-11-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jielunya.github.io/Mikutap/data/track/track.json</loc>
+    
+    <lastmod>2021-05-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jielunya.github.io/Mikutap/data/main/main.json</loc>
+    
+    <lastmod>2021-05-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
