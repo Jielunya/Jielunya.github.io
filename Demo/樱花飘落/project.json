@@ -1,0 +1,22 @@
+{
+	"description" : "pixiv id=60977236\n\n原画作者描述：桜とセイバー（沖田総司/菊一文字則宗）を描きました\n菊花を描くつもりだったけど、今年もそろそろ桜の季節ですね、ねー\n\n萌系的樱saber搭配樱花飘落特效真是美极了⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄\n刀剑的镜面效果好评~\n\n樱花特效套用创意工坊id=828327383，侵删\n\n喜欢的朋友帮忙赞一个~\\(≧▽≦)/~",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Anime" ],
+	"title" : "{萌系}冲田总司 [樱花飘落]",
+	"type" : "web",
+	"visibility" : "public"
+}
