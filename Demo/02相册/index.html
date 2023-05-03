@@ -4,32 +4,80 @@
     <meta charset="utf-8">
     <title>灵儿相册</title>
     <link rel="stylesheet" type="text/css" href="index.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
     <style>
       body {
         background: url("background/background.jpg") no-repeat center center fixed;
         background-size: cover;
       }
+      
+      #password-form {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FFFFFF;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      
+      #password-input {
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+      
+      #password-button {
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #0077FF;
+        color: #FFFFFF;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
+    <div id="password-form">
+      <form>
+        <input type="password" id="password-input" placeholder="请输入访问密码">
+        <button type="button" id="password-button">验证</button>
+      </form>
+    </div>
     
     <div id="cont">
       
     </div>
     
     <script>
+      var password = "jl215202"; // 设置密码
       var numImages = 11; // 图片数量
       var cont = document.getElementById("cont"); // 获取包含图片的元素
-
-      // 动态加载图片并为每个图片设置样式
-      for (var i = 1; i <= numImages; i++) {
-        var img = document.createElement("img");
-        img.setAttribute("src", "image/" + i + ".jpg");
-        img.setAttribute("class", "ima");
-        var deg = Math.floor(Math.random() * 10 + 1); // 生成旋转角度
-        img.style.transform = "rotate(" + (i % 2 === 0 ? -deg : deg) + "deg)"; // 设置旋转角度
-        cont.appendChild(img);
-      }
+      
+      // 验证密码
+      document.getElementById("password-button").addEventListener("click", function() {
+        var inputPassword = document.getElementById("password-input").value;
+        var hashedPassword = md5(inputPassword); // 对输入的密码进行 MD5 加密
+        if (hashedPassword === md5(password)) { // 对比加密后的密码
+          document.getElementById("password-form").style.display = "none"; // 隐藏密码输入框
+          
+          // 动态加载图片并为每个图片设置样式
+          for (var i = 1; i <= numImages; i++) {
+            var img = document.createElement("img");
+            img.setAttribute("src", "image/" + i + ".jpg");
+            img.setAttribute("class", "ima");
+            var deg = Math.floor(Math.random() * 10 + 1); // 生成旋转角度
+            img.style.transform = "rotate(" + (i % 2 === 0 ? -deg : deg) + "deg)"; // 设置旋转角度
+            cont.appendChild(img);
+          }
+        } else {
+          alert("密码错误，请重新输入！");
+        }
+      });
     </script>
     <script src="index.js"></script> <!--樱花特效-->
   </body>
