@@ -54,7 +54,7 @@
     </div>
     
     <script>
-      var password = "jl215202"; // 设置密码
+      var password = "77d751d3df1405200180c5b880b3de4e"; // 设置密码
       var numImages = 11; // 图片数量
       var cont = document.getElementById("cont"); // 获取包含图片的元素
       
@@ -62,7 +62,7 @@
       document.getElementById("password-button").addEventListener("click", function() {
         var inputPassword = document.getElementById("password-input").value;
         var hashedPassword = md5(inputPassword); // 对输入的密码进行 MD5 加密
-        if (hashedPassword === md5(password)) { // 对比加密后的密码
+        if (hashedPassword === password) { // 对比加密后的密码
           document.getElementById("password-form").style.display = "none"; // 隐藏密码输入框
           
           // 动态加载图片并为每个图片设置样式
