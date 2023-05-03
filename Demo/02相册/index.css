@@ -31,3 +31,7 @@ body{
 	transform: scale(1.5) rotate(0deg) !important;
 }
 
+
+#cont {
+  user-select: none;  #将这个样式添加到样式表中即可。这样用户在空白处点击时就不会出现输入光标了。
+}
