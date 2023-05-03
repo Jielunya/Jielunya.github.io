@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>灵儿相册</title>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <style>
+      body {
+        background: url("background/background.jpg") no-repeat center center fixed;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="cont">
+      
+    </div>
+    
+    <script>
+      var numImages = 11; // 图片数量
+      var cont = document.getElementById("cont"); // 获取包含图片的元素
+
+      // 动态加载图片并为每个图片设置样式
+      for (var i = 1; i <= numImages; i++) {
+        var img = document.createElement("img");
+        img.setAttribute("src", "image/" + i + ".jpg");
+        img.setAttribute("class", "ima");
+        var deg = Math.floor(Math.random() * 10 + 1); // 生成旋转角度
+        img.style.transform = "rotate(" + (i % 2 === 0 ? -deg : deg) + "deg)"; // 设置旋转角度
+        cont.appendChild(img);
+      }
+    </script>
+    <script src="index.js"></script> <!--樱花特效-->
+  </body>
+</html>
