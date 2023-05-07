@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: pink;
+			}
+			.box{
+				width: 120px;
+				height:  120px;
+				background: #ff0000;
+				/* 使盒子旋转45度, 并设置边距 */
+				transform: rotate(45deg);
+				margin: 200px auto;
+				animation: love 1s infinite;  /* 动画绑定 */
+				box-shadow: 0 0 20px #ff5500;
+			}
+			/* 爱心形状绘制 */
+			.box::before,
+			.box::after{
+				content: "";
+				/* 给插入的盒子进行定位 */
+				position: absolute;
+				width: 120px;
+				height: 120px;
+				background: #ff0000;
+				border-radius: 50%;
+			}
+			.box::before{
+				left: -68px;
+			}
+			.box::after{
+				top: -68px;
+			}
+			/* 动画绘制 */
+			@keyframes love{
+				0%{
+					transform: rotate(45deg)scale(0.85);
+				}
+				50%{
+					transform: rotate(45deg)scale(1);
+				}
+				100%{
+					transform: rotate(45deg)scale(0.85);
+				}
+			}
+			p{
+				text-align: center;
+				font-size: 30px;
+				font-weight: 520;
+				color: #ff0095;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<p id="h2"></p>
+		<script>
+			var h = document.getElementById(h2);//调取html中的输出对象
+			//计时器方法一
+			timeDifference(`2022/10/26 23:00:00`, ``, h2);//此处先调用一次防止出现刷页面后没有内容
+			function a() {
+				timeDifference(`2022/10/26 23:00:00`, ``, h2);
+			}//设置好时间差函数的调用参数,封装函数便于定时器调用
+			setInterval(a, 1000);//定时器设置每1000毫秒即1s执行一次a函数
+ 
+ 
+ 
+			//@function 根据目标时间在当前时间的前后分别返回`距离XXX已过去XX天XX小时XX分XX秒`或`距离XXXX还有:XX天XX小时XX分XX秒`
+			//@param  endT为目标时间,需按照字符串格式输入;endName为目标时间的名字,默认为`目标时间`;obj为在网页内的输出对象.
+			//@return  true表示为目标时间为过去,false表示目标时间为未来
+ 
+			function timeDifference(endT, endName = `2022/10/28`, obj) {
+				var startTime = new Date().getTime();//引入当前时间戳
+				var endTime = new Date(endT).getTime();//引入结束目标时间戳
+				var secondDif = parseInt((endTime - startTime) / 1000);//计算真实时间差,单位s/秒
+				if (secondDif < 0) {
+					var secondDifference = -secondDif;
+				} else {
+					var secondDifference = secondDif;
+				}//定义时间差为正
+				var day = parseInt(secondDifference / 24 / 60 / 60);//计算出天数取整
+				var hour = parseInt(secondDifference / 60 / 60) % 24;//计算出总小时数去掉达到一天24h的部分
+				var minute = parseInt(secondDifference / 60) % 60;//计算出总分钟数去掉达到一小时60分钟的部分
+				var second = secondDifference % 60;//总秒数去掉达到一分钟60秒的部分
+
+				if (secondDif < 0) {
+					obj.innerHTML = `从2023.1.25到2023.5.4这段时间里，不知不觉中我们相爱已经100天啦。<br>
+					白里透粉的是白芍花，寓意着思念想念，寓意着依依不舍、难舍难分。<br>
+					蓝色玫瑰的也很好看，蓝色代表着忠贞，希望我们的爱也能够像蓝玫瑰一样美丽而忠贞。<br>
+					灵灵也要天天开心♥！！！</span><br><a href="https://jielun.site/demo/02相册">点这里进入02的相册，密码:jl215202</a>`
+
+					return false;
+				} else {
+					obj.innerHTML = `${endName}<br><span>${day < 10 ? '0' + day : day} 天 ${hour < 10 ? '0' + hour : hour} 小时 ${minute < 10 ? '0' + minute : minute} 分钟 ${second < 10 ? '0' + second : second} 秒</span>`
+					return true;
+				}//根据真实时间差选择输出语句.
+ 
+			}
+		</script>
+	</body>
+</html>
