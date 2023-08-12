@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>灵灵生日快乐</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* 固定音乐播放器在左下角 */
+        .music-player {
+            position: fixed;
+            bottom: -30px;
+            left: -21px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头像 -->
+    <div class="cs">
+        <img src="miku.png" id="logo">
+    </div>
+    <canvas class="canvas" width="1820" height="905"></canvas>
+
+    <!-- 音乐播放器 -->
+    <div class="music-player">
+        <iframe frameborder="yes" border="0" marginwidth="0" marginheight="0" width="300" height="86" src="https://music.163.com/outchain/player?type=2&id=1904762714&auto=1&height=66"></iframe>
+    </div>
+
+    <!-- canvas动画 -->
+    <script type="text/javascript" src="index.js"></script>
+    <footer style="color: #BBE1FA; text-align:center;">
+        <font size="3" color=#BBE1FA>🍰祝愿灵灵生日快乐 &nbsp</font>
+    </footer>
+</body>
+
+</html>
