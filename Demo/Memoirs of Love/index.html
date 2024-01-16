@@ -1,277 +1,607 @@
 <!DOCTYPE html>
-<html >
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>潘灵恋爱日记</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300,400,500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
-  
-  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+  <title>Love Diary</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
 
-      <link rel="stylesheet" href="css/style.css">
-
-  
-</head>
-
-<body>
-  <header>
-    <div class="container text-center">
-      <h1>-潘潘和灵灵的恋爱日记-</h1>
-    </div>
-  </header>
-  <style>
-    header {
-      background-image: url('1_updated.jpg'); /* 指定背景图片路径 */
-      background-size: cover; /* 背景图片适应容器大小 */
-      background-position: center; /* 背景图片居中对齐 */
-      background-repeat: no-repeat; /* 防止背景图片重复显示 */
-      height: 100vh; /* 设置高度，以铺满整个视口 */
-      color: white; /* 文本颜色为白色，以便与背景对比 */
-      text-align: center; /* 文本居中对齐 */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    header h1 {
-      font-family: 'Allura', cursive;
-      font-size: 3em;
-      margin-bottom: 10px;
-      color: #39c5bb;
-    }
-    header p {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 300;
-      font-size: 1.25em;
-    }
-    .music-player {
-      position: fixed;
-      bottom: -30px;
-      left: -21px;
-      margin: 10px;
-    }
-  </style>
 </head>
 <body>
-    <div class="container text-center">
+<!-- partial:index.partial.html -->
+<div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header__title">Pan and Ling's Love Diary</h2>
+    <h3 class="timeline-header__subtitle">潘灵恋爱星空</h3>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/2024.1.25.jpg"/>
+        <h2 class="timeline__content-title">2024</h2>
+        <p class="timeline__content-desc">向下滑动，观看我们的恋爱星空</p>
+      </div>
     </div>
-  </header>
-  <section class="timeline">
-    <div class="container">
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-          <div class="date">-2023.8.8-<br>早上跟灵灵去秋子谷子店（天河店）（看fufu），天河时尚广场（一开始来的时候买了早餐，包子，红薯，好特卖买了零食（柠檬水，龟苓膏）（广州购书中心）（看书），中午吃自选（吃草），下午看电影，五一影城（广州四季天地店）看孤注一掷（网络安全，对味了），吃杨国富麻辣烫（赤岗新港中路店）（灵灵爱吃），晚上去永乐坊（看月亮桥）（喝芭乐柠檬茶），到商城里薅羊毛（5.4六瓶柠檬茶），最后回宿舍了送礼物。</div>
-          <img src="image/天河时尚广场_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/孤注一掷_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/永庆坊1_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/永庆坊2_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/永庆坊3_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/永庆坊4_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/与广州塔合影_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/孤注一掷2_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/永庆坊5_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/永庆坊6_updated.jpg alt="Image" style="width:100%;">
-          <img src="image/永庆坊7_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/永庆坊相机合影_updated.jpg" alt="Image" style="width:100%;">          
-
-        </div>
-      </div> 
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.8.5-<br>再逛北京路，找了好久的百家姓</div>
-          <img src="image/北京路好看的云_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/一生平安_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>   
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.8.2-<br>灵灵给潘潘买的蓝色玫瑰花</div>
-          <img src="image/蓝色的花_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>  
-
-      
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-          <div class="date">-2023.7.29-<br>和灵灵去动漫星城、越秀公园（越秀山）、北京路</div>
-          <img src="image/动漫星城_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/越秀公园_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/越秀山_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/北京路1_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/北京路2_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/北京路3_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div> 
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.7.23-<br>和灵灵去广东华侨博物馆</div>
-          <img src="image/华侨博物馆1_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/华侨博物馆2_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/华侨博物馆3_updated.jpg" alt="Image" style="width:100%;">
-
-        </div>
-      </div>  
-      
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-          <div class="date">-2023.7.15-<br>和灵灵去电影院看的第一场电影（星汇电影城（天河店））（茶啊二中）
-去华南植物园，吃萨莉亚</div>
-          <img src="image/华南植物园1_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/华南植物园3_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/华南植物园4_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/华南植物园5_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/华南植物园6_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/莎莉亚1_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/莎莉亚2_updated.jpg" alt="Image" style="width:100%;">
-
-        </div>
-      </div> 
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.7.1-<br>灵灵来南海接我去广州校区</div>
-          <img src="image/行李箱_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/远处的一只灵_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>  
-      
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-          <div class="date">-2023.6.11-<br>跟灵灵去和信广场玩</div>
-          <img src="image/和信广场1_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/和信广场2_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div> 
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.6.1-<br>灵灵送的六一礼物，一头摇摇猪，还有miku贴纸</div>
-          <img src="image/摇摇猪_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/miku贴纸_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>  
-      
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-          <div class="date">-2023.5.31-<br>(太晚了不敢回去)跟灵灵在实验室过了一夜，灵灵：睡不着，我们来亲亲叭(凌晨两三点还在亲亲)(内心暗喜)</div>
-          <img src="image/实验室过夜_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/一朵云_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>  
-      
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.5.21-<br>是灵灵送的5.20礼物！玉桂狗和猫猫键帽！！(其实5.15就送了，只是迟迟不舍得拆开用)</div>
-          <img src="image/玉桂狗键帽1_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/玉桂狗键帽2_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/装好键帽的键盘_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/猫猫键帽_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>   
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-          <div class="date">-2023.5.20-<br>是和灵灵过的第一个5.20！！！
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/祖庙小巷_updated.jpg"/>
+        <h2 class="timeline__content-title">2024.1.1</h2>
+        <p class="timeline__content-desc">祖庙小巷，祖庙好多小巷子</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/祖庙龙_updated.jpg"/>
+        <h2 class="timeline__content-title">2024.1.1</h2>
+        <p class="timeline__content-desc">祖庙龙龙</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/祖庙吉祥树_updated.jpg"/>
+        <h2 class="timeline__content-title">2024.1.1</h2>
+        <p class="timeline__content-desc">跟灵灵去祖庙，我称之为吉祥树，树上好多祝福语</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/跟灵灵打一年的电话_updated.jpg"/>
+        <h2 class="timeline__content-title">2024.1.1</h2>
+        <p class="timeline__content-desc">也算是跟灵灵打了一年的电话~</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/灵灵的新年红包_updated.jpg"/>
+        <h2 class="timeline__content-title">2024.1.1</h2>
+        <p class="timeline__content-desc">灵灵给的新年红包！！！</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/灵灵的新年祝福.jpg"/>
+        <h2 class="timeline__content-title">2024.1.1</h2>
+        <p class="timeline__content-desc">跨年噜，聪明灵的新年祝福</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/带着超厚芋泥奶茶去办公室看灵灵_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.26</h2>
+        <p class="timeline__content-desc">带着超厚芋泥奶茶去办公室看灵灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/灵灵点的校门口的炒面_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.23</h2>
+        <p class="timeline__content-desc">灵灵点的校门口的炒面，好好吃！</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/顺利公园里的炖雪梨_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.23</h2>
+        <p class="timeline__content-desc">顺利公园里的炖雪梨，在冷冷的天，好暖胃</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/顺联公园里圣诞老人_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.17</h2>
+        <p class="timeline__content-desc">顺联公园里圣诞老人，这里还有喷雪机，跟灵灵共白头噜！！！</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/拍风景的灵_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.23</h2>
+        <p class="timeline__content-desc">拍风景的灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/路过的公园害羞的灵_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.23</h2>
+        <p class="timeline__content-desc">害羞的灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/路过的公园遮脸灵_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.23</h2>
+        <p class="timeline__content-desc">手机遮脸的灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/路过公园拍照_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.23</h2>
+        <p class="timeline__content-desc">跟灵灵去顺联公园里</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/猫猫灵比小心心_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.17</h2>
+        <p class="timeline__content-desc">猫猫灵比小心心</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/猫猫灵比耶_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.17</h2>
+        <p class="timeline__content-desc">猫猫灵比耶</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/吃蛋糕_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.16</h2>
+        <p class="timeline__content-desc">潘潘：好像忘记吃蛋糕了，太晚了要不还是算噜，灵灵：那就是要吃！（是一个芋泥肉松海苔蛋糕，好吃！）</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/佛山创意园1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.16</h2>
+        <p class="timeline__content-desc">拍吊灯牌的灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/佛山创意园_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.16</h2>
+        <p class="timeline__content-desc">你是哪里人，我的心上人</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/经典杨国富麻辣烫_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.16</h2>
+        <p class="timeline__content-desc">跟灵灵吃灵灵最爱的麻辣烫</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/棕色的围巾_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.16</h2>
+        <p class="timeline__content-desc">最后用七个娃娃换了一个围巾（从lulu猪上的脖子上拿下来的）</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/夹了好多娃娃_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.16</h2>
+        <p class="timeline__content-desc">夹了好多娃娃，灵灵厉害噜</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/生日这天公交车上的牵手手_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.16</h2>
+        <p class="timeline__content-desc">是灵灵给潘潘过的第一个生日！！！去佛山创意园的路上，牵手手~</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/灵灵笑得最开心的一集_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.15</h2>
+        <p class="timeline__content-desc">灵灵笑得最开心的一集</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/双指合十握着我们的姓名_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.15</h2>
+        <p class="timeline__content-desc">双指合十握着我们的姓名</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/四张灵拍潘_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.15</h2>
+        <p class="timeline__content-desc">四张灵拍潘</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/生日礼物书包_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.15</h2>
+        <p class="timeline__content-desc">灵灵送给我的生日礼物，是一个书包，里面还有潘潘和灵灵的合照！！！</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/星辰大海前程锦绣_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.6</h2>
+        <p class="timeline__content-desc">祝愿我们都星辰大海、前程锦绣</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/拍女儿与熊熊合照的灵_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.6</h2>
+        <p class="timeline__content-desc">拍女鹅与熊熊合照的灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/放女鹅的灵_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.6</h2>
+        <p class="timeline__content-desc">跟灵灵去咖啡一条街，是放女鹅的灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/只属于你_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.12.5</h2>
+        <p class="timeline__content-desc">只属于你</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/跟电子版灵灵合照_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.30</h2>
+        <p class="timeline__content-desc">跟电子版灵灵合照（聪明的灵灵~）</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/fufu提照片_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.28</h2>
+        <p class="timeline__content-desc">灵灵的女鹅提着合照</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/跟老师合照_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.28</h2>
+        <p class="timeline__content-desc">有老师的合照</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/和灵灵的毕业照_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.28</h2>
+        <p class="timeline__content-desc">和灵灵拍毕业照</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/合照比耶_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.25</h2>
+        <p class="timeline__content-desc">合照比耶</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/合照比心_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.25</h2>
+        <p class="timeline__content-desc">合照比心</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/喝霸王茶姬_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.25</h2>
+        <p class="timeline__content-desc">喝霸王茶姬</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/见闺蜜_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.25</h2>
+        <p class="timeline__content-desc">跟灵灵见她闺蜜</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/300天.jpg"/>
+        <h2 class="timeline__content-title">2023.11.21</h2>
+        <p class="timeline__content-desc">和灵灵相爱的第300天！！！</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/千岛湖4_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.19</h2>
+        <p class="timeline__content-desc">千岛湖远处的塔</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/千岛湖3_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.19</h2>
+        <p class="timeline__content-desc">千岛湖远处的塔</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/千岛湖2_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.19</h2>
+        <p class="timeline__content-desc">千岛湖里奇奇怪怪的东西</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/千岛湖1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.11.19</h2>
+        <p class="timeline__content-desc">和灵灵去千岛湖</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/永庆坊相机合影_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">相机合影</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/永庆坊6_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">亮灯的船儿驶来</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/永庆坊5_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">亮灯的船儿</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/永庆坊4_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">永庆坊的小宫殿</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/永庆坊3_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">永庆坊的月亮桥</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/永庆坊2_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">永庆坊的船船</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/永庆坊7_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">大大的永庆坊</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/永庆坊1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">永庆坊门口</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/孤注一掷2_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">孤注一掷</p>
+      </div>
+    </div>   
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/孤注一掷_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">买电影票看电影噜</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/与广州塔合影_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">灵灵给潘潘拍的跟广州塔合照</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/天河时尚广场_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.8</h2>
+        <p class="timeline__content-desc">早上跟灵灵去秋子谷子店（天河店）（看fufu），天河时尚广场（一开始来的时候买了早餐，包子，红薯，好特卖买了零食（柠檬水，龟苓膏）（广州购书中心）（看书），中午吃自选（吃草），下午看电影，五一影城（广州四季天地店）看孤注一掷（网络安全，对味了），吃杨国富麻辣烫（赤岗新港中路店）（灵灵爱吃），晚上去永乐坊（看月亮桥）（喝芭乐柠檬茶），到商城里薅羊毛（5.4六瓶柠檬茶），最后回宿舍了送礼物。</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/一生平安_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.5<</h2>
+        <p class="timeline__content-desc">和灵灵找了好久的百家姓，要一生平安哦</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/北京路好看的云_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.5</h2>
+        <p class="timeline__content-desc">再逛北京路，好看的云云</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/蓝色的花_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.8.2</h2>
+        <p class="timeline__content-desc">灵灵给潘潘买的蓝色玫瑰花</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/北京路3_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.29</h2>
+        <p class="timeline__content-desc">和灵灵的百家姓贴贴</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/北京路2_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.29</h2>
+        <p class="timeline__content-desc">北京路3D投影</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/北京路1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.29</h2>
+        <p class="timeline__content-desc">和灵灵去北京路</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/越秀山_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.29</h2>
+        <p class="timeline__content-desc">和灵灵去越秀山</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/越秀公园_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.29</h2>
+        <p class="timeline__content-desc">和灵灵去越秀公园</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/动漫星城_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.29</h2>
+        <p class="timeline__content-desc">和灵灵去动漫星城</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/华侨博物馆3_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.23</h2>
+        <p class="timeline__content-desc">孙中山爷爷</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/华侨博物馆2_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.23</h2>
+        <p class="timeline__content-desc">古老的房子</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/华侨博物馆1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.23</h2>
+        <p class="timeline__content-desc">和灵灵去广东华侨博物馆</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/莎莉亚2_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.15</h2>
+        <p class="timeline__content-desc">莎莉亚小甜点</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/莎莉亚1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.15</h2>
+        <p class="timeline__content-desc">在莎莉亚吃了好多好吃的</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/华南植物园6_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.15</h2>
+        <p class="timeline__content-desc">华南植物园</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/华南植物园5_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.15</h2>
+        <p class="timeline__content-desc">华南植物园</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/华南植物园4_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.15</h2>
+        <p class="timeline__content-desc">华南植物园</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/华南植物园3_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.15</h2>
+        <p class="timeline__content-desc">华南植物园</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/华南植物园1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.15</h2>
+        <p class="timeline__content-desc">和灵灵去电影院看的第一场电影（星汇电影城（天河店））（茶啊二中）
+去华南植物园，吃萨莉亚</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/远处的一只灵_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.1</h2>
+        <p class="timeline__content-desc">远处的一只灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/行李箱_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.7.1</h2>
+        <p class="timeline__content-desc">灵灵来南海接我去广州校区</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/和信广场2_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.6.11</h2>
+        <p class="timeline__content-desc">和信广场旁边的湖边夕阳</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/和信广场1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.6.11</h2>
+        <p class="timeline__content-desc">跟灵灵去和信广场玩</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/miku贴纸_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.6.1</h2>
+        <p class="timeline__content-desc">miku贴纸</p>
+      </div>
+    </div>     
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/摇摇猪_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.6.1</h2>
+        <p class="timeline__content-desc">灵灵送的六一礼物，一头摇摇猪，还有miku贴纸</p>
+      </div>
+    </div>    
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/实验室过夜_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.5.31</h2>
+        <p class="timeline__content-desc">(太晚了不敢回去)跟灵灵在实验室过了一夜，灵灵：睡不着，我们来亲亲叭(凌晨两三点还在亲亲)(内心暗喜)</p>
+      </div>
+    </div>        
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/猫猫键帽_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.5.21</h2>
+        <p class="timeline__content-desc">猫猫键帽</p>
+      </div>
+    </div>    
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/装好键帽的键盘_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.5.21</h2>
+        <p class="timeline__content-desc">装好键帽的键盘</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/玉桂狗键帽1_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.5.21</h2>
+        <p class="timeline__content-desc">是灵灵送的5.20礼物！玉桂狗和猫猫键帽！！(其实5.15就送了，只是迟迟不舍得拆开用)</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/520快乐_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.5.20</h2>
+        <p class="timeline__content-desc">5.20快乐！！！</p>
+      </div>
+    </div>    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/坠入爱河_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.5.20</h2>
+        <p class="timeline__content-desc">是和灵灵过的第一个5.20！！！
 两杯菠萝爱情海
 一条坠入爱的河
-一颗爱灵灵的心</div>
-          <img src="image/520快乐_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/坠入爱河_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>         
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-          <div class="date">-2023.5.19-<br>(教学楼)<br>深吻！！！瘫坐在椅子上的灵灵：呃.......没力气了</div>
-          <img src="image/猫猫亲吻.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>        
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.5.7-<br>灵灵送的一百天纪念日礼物，是一个蓝色的花灯，里面还有灵灵写的祝福语！！！(100天纪念日是2023.5.4但是因为在家送不了)</div>
-          <img src="image/100天纪念日_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div> 
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-          <div class="date">-2023.4.10-<br>(图书馆)<br>不经意间偷偷亲一口我的灵</div>
-          <img src="image/偷亲.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>  
-      
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.2.23-<br>就这样一直贴贴，一直牵着不松开。</div>
-          <img src="image/贴贴_updated.jpg" alt="Image" style="width:100%;">
-          <img src="image/牵手_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>    
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-            <img src="image/比心_updated.jpg" alt="Image" style="width:100%;">
-          <div class="date">-2023.2.16-<br>实验室比心心</div>
-        </div>
-      </div>  
-      
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-          <div class="date">-2023.2.17-<br>五彩斑斓的灯，五彩斑斓的你，都在黑暗中照亮过我</div>
-          <img src="image/五彩斑斓_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>    
-
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content timeline-card js--fadeInRight">
-            <img src="image/比心_updated.jpg" alt="Image" style="width:100%;">
-        	<div class="date">-2023.2.16-<br>实验室比心心</div>
-        </div>
-      </div>  
-      
-      <div class="timeline-item">
-        <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
-        	<div class="date">-2023.2.23-<br>是灵灵，是第一次约会，是我们的第一个情人节！</div>
-          <img src="image/我们的第一个情人节_updated.jpg" alt="Image" style="width:100%;">
-        </div>
-      </div>   
-
-      
-          
+一颗爱灵灵的心</p>
+      </div>
     </div>
-  </section>
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script src='https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js'></script>
-    <script src="js/樱花.js"></script>
-    <script src="js/index.js"></script>
-    <div class="music-player">
-        <iframe frameborder="yes" border="0" marginwidth="0" marginheight="0" width="300" height="86" src="https://music.163.com/outchain/player?type=2&id=1403318151&auto=1&height=66"></iframe>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/猫猫亲吻.jpg"/>
+        <h2 class="timeline__content-title">2023.5.19</h2>
+        <p class="timeline__content-desc">深吻！！！瘫坐在椅子上的灵灵：呃.......没力气了</p>
+      </div>
     </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/100天纪念日_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.5.7</h2>
+        <p class="timeline__content-desc">灵灵送的一百天纪念日礼物，是一个蓝色的花灯，里面还有灵灵写的祝福语！！！(100天纪念日是2023.5.4但是因为在家送不了)</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/偷亲.jpg"/>
+        <h2 class="timeline__content-title">2023.4.10</h2>
+        <p class="timeline__content-desc">不经意间偷偷亲一口我的灵</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/牵手_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.2.23</h2>
+        <p class="timeline__content-desc">
+          一直牵着不松开</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/贴贴_updated.jpg"/> 
+        <h2 class="timeline__content-title">2023.2.23</h2>
+        <p class="timeline__content-desc">就这样一直贴贴</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/五彩斑斓_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.2.17</h2>
+        <p class="timeline__content-desc">图书馆，五彩斑斓的灯，五彩斑斓的你，都在黑暗中照亮过我</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/比心_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.2.16</h2>
+        <p class="timeline__content-desc">
+          在实验室比心心</strong></i>
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="Love in the Starry Sky">
+      <div class="timeline__content"><img class="timeline__img" src="image/我们的第一个情人节_updated.jpg"/>
+        <h2 class="timeline__content-title">2023.2.14</h2>
+        <p class="timeline__content-desc">是我们的第一次约会，是我们的第一个情人节！</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script><script  src="./script.js"></script>
+<script src="js/樱花.js"></script>
+
 </body>
 </html>
