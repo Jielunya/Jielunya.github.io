@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>HGAME-WEEK1 | 做 讓 人 远 远 聽 見 的 風</title><meta name="author" content="JieLun杰伦"><meta name="copyright" content="JieLun杰伦"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="WEB2048*16这题应该是过关了就能拿到flag，一开始尝试修改增加的分数，发现一下子分数飚的太高了，然后达不到32768，于是想着，直接把游戏的状态，从一开始的！1改成1，就实现了，游戏还没开始就结束了。 Select Courses 有一个获取课程的api这里能修改是否已经满了，还有现在的状态（是否已选）一开始尝试修改这个的返回包，将满的true改成false，然后去选课，发现依然不行，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HGAME-WEEK1">
+<meta property="og:url" content="https://jielunya.github.io/2024/02/05/HGAME-week1/index.html">
+<meta property="og:site_name" content="做 讓 人 远 远 聽 見 的 風">
+<meta property="og:description" content="WEB2048*16这题应该是过关了就能拿到flag，一开始尝试修改增加的分数，发现一下子分数飚的太高了，然后达不到32768，于是想着，直接把游戏的状态，从一开始的！1改成1，就实现了，游戏还没开始就结束了。 Select Courses 有一个获取课程的api这里能修改是否已经满了，还有现在的状态（是否已选）一开始尝试修改这个的返回包，将满的true改成false，然后去选课，发现依然不行，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jielunya.github.io/assets/67_updated.jpg">
+<meta property="article:published_time" content="2024-02-05T13:13:59.859Z">
+<meta property="article:modified_time" content="2024-02-05T13:59:03.266Z">
+<meta property="article:author" content="JieLun杰伦">
+<meta property="article:tag" content="CTF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jielunya.github.io/assets/67_updated.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://jielunya.github.io/2024/02/05/HGAME-week1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HGAME-WEEK1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-05 21:59:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="https://cyan-blog.oss-cn-shenzhen.aliyuncs.com/cdn/js/three.min.js"></script><link rel="stylesheet" href="/css/transpancy.css"><link rel="stylesheet" href="/css/custom@1.0.2.css"><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/myStyle.css"><link rel="stylesheet" href="/css/foot.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="/js/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="做 讓 人 远 远 聽 見 的 風" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading3.gif" data-original="/img/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于作者</span></a></div></div></div></div><div class="canvas-container" id="canvas"></div><div class="cherry-container" id="jsi-cherry-container"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/assets/67_updated.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">做 讓 人 远 远 聽 見 的 風</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于作者</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HGAME-WEEK1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-05T13:13:59.859Z" title="发表于 2024-02-05 21:13:59">2024-02-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-05T13:59:03.266Z" title="更新于 2024-02-05 21:59:03">2024-02-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="/img/loading3.gif" data-original="/assets/GAME1.jpg"></p>
+<h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="2048-16"><a href="#2048-16" class="headerlink" title="2048*16"></a>2048*16</h2><p>这题应该是过关了就能拿到flag，一开始尝试修改增加的分数，发现一下子分数飚的太高了，然后达不到32768，于是想着，直接把游戏的状态，从一开始的！1改成1，就实现了，游戏还没开始就结束了。<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_1.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_2.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_3.jpg"></p>
+<h2 id="Select-Courses"><a href="#Select-Courses" class="headerlink" title="Select Courses"></a>Select Courses</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_4.jpg"></p>
+<p>有一个获取课程的api<br>这里能修改是否已经满了，还有现在的状态（是否已选）<br>一开始尝试修改这个的返回包，将满的true改成false，然后去选课，发现依然不行，后面尝试并发，条件竞争。<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_5.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_6.jpg"><br>这两个包同时并发，然后一定概率就会让课程成功选择（有点玄学）<br>最后还是把全部课程选完了<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_7.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_8.jpg"><br>hgame{w0W_!_1E4Rn_To_u5e_5cripT_^_^}</p>
+<h2 id="Bypass-it"><a href="#Bypass-it" class="headerlink" title="Bypass it"></a>Bypass it</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_9.jpg"><br>这个直接点注册点不了<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_10.jpg"><br>题目提示说<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_11.jpg"><br>所以我把js禁用，他就无法把我拉回登录页面了<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_12.jpg"><br>随便注册一个账号<br>然后回去登录<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_13.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_14.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_15.jpg"></p>
+<h2 id="ezHTTP"><a href="#ezHTTP" class="headerlink" title="ezHTTP"></a>ezHTTP</h2><p>根据提示<br>使用burp修改<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_16.jpg"><br>然后拿到一个jwt的token<br>去解密<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_17.jpg"><br>{<br>  “F14g”: “hgame{HTTP_!s_1mP0rT4nt}”<br>}</p>
+<h2 id="Jhat"><a href="#Jhat" class="headerlink" title="Jhat"></a>Jhat</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_18.jpg"><br>Jhat是用来解析java堆转储文件的<br>这里使用OQL可以执行对象查询，有点像SQL<br>这里根据hint知道需要rce<br>可以想到<br>a&#x3D;java.lang.Runtime.getRuntime().exec(‘ls’)<br>通过Java的Runtime类执行ls命令，exec方法返回一个Process对象<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_19.jpg"><br>b&#x3D;new java.io.InputStreamReader(a.getInputStream(), “UTF-8”)<br>然后将Process对象的输入流（即ls命令的标准输出）转换成字符流，且指定字符集为UTF-8<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_20.jpg"><br>c&#x3D;new java.io.BufferedReader(b)<br>创建了BufferedReader对象，它包装了InputStreamReader<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_21.jpg"><br>c.readLine()<br>最后通过readLine方法读取命令输出的第一行<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_22.jpg"><br>这里可以一直点<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_23.jpg"><br>发现flag就在当前目录下<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_24.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_25.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_26.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_27.jpg"><br>hgame{04a2ec563685d9a0d2b7479af93738d417a2e129}</p>
+<h1 id="REVERSE"><a href="#REVERSE" class="headerlink" title="REVERSE"></a>REVERSE</h1><h2 id="ezIDA"><a href="#ezIDA" class="headerlink" title="ezIDA"></a>ezIDA</h2><p>直接拖入IDA，查找字符串<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_28.jpg"></p>
+<h2 id="ezUPX"><a href="#ezUPX" class="headerlink" title="ezUPX"></a>ezUPX</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_29.jpg"><br>先搜索关键字符串<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_30.jpg"><br>这里分析得出是跟0x32异或后的结果相等即正确<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_31.jpg"><br>将待解密数据转化为C无符号字符数组（十六进制）<br>写解密脚本<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_32.jpg"><br>得出<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_33.jpg"><br>省去后面多余的</p>
+<p>VIDAR{Wow!Y0u_kn0w_4_l1ttl3_0f_UPX!}</p>
+<h2 id="ezASM"><a href="#ezASM" class="headerlink" title="ezASM"></a>ezASM</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_34.jpg"><br>是一个汇编语言，翻译一下就是一个异或</p>
+<p>Python写解密脚本<br>c &#x3D; [74, 69, 67, 79, 71, 89, 99, 113, 111, 125, 107, 81, 125, 107, 79, 82, 18, 80, 86, 22, 76, 86, 125, 22, 125, 112, 71, 84, 17, 80, 81, 17, 95, 34] # 逆运算 decrypted_c &#x3D; [char ^ 0x22 for char in c] # 将解密后的字符转换为 ASCII 字符 decrypted_string &#x3D; ‘’.join(chr(char) for char in decrypted_c) print(decrypted_string)</p>
+<p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_35.jpg"><br>hgame{ASM_Is_Imp0rt4nt_4_Rev3rs3}</p>
+<h2 id="EZPYC"><a href="#EZPYC" class="headerlink" title="EZPYC"></a>EZPYC</h2><p>这是一个反编译python的题<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_36.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_37.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_38.jpg"></p>
+<p>编写解密脚本<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_39.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_40.jpg"></p>
+<h1 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h1><h2 id="ezRSA"><a href="#ezRSA" class="headerlink" title="ezRSA"></a>ezRSA</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_41.jpg"><br>题目给了leak1和leak2<br>通过leak1和leak2计算n（RSA模数），RSA模数是两个大素数p和q的乘积<br>n &#x3D; leak1 * leak2<br>然后用n来计算p和q<br>def factorize(n, leak1, leak2):<br>    g &#x3D; GCD(leak1, n)<br>    q &#x3D; n &#x2F;&#x2F; g<br>    return g, q</p>
+<p>p, q &#x3D; factorize(n, leak1, leak2)</p>
+<p>计算欧拉函数<br>phi &#x3D; (p - 1) * (q - 1)</p>
+<p>计算私钥d它是公钥指数e的模phi(n)的逆元素<br>d &#x3D; inverse(0x10001, phi)</p>
+<p>最后用得到的n和d来解密密文，得到明文后转换为字节打印出来：<br>m_decrypt &#x3D; pow(c, d, n)<br>flag_decrypted &#x3D; long_to_bytes(m_decrypt)<br>print(“Decrypted Flag:”, flag_decrypted.decode())</p>
+<p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_42.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_43.jpg"><br>hgame{F3rmat_l1tt1e_the0rem_is_th3_bas1s}</p>
+<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><h2 id="SignIn"><a href="#SignIn" class="headerlink" title="SignIn"></a>SignIn</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_45.jpg"><br>提示换个视角，我直接发到手机上，然后眼睛对着充电口的方向即可得出flag<br>hgame{WOW_GREAT_YOU_SEE_IT_WONDERFUL}</p>
+<h2 id="EzSignIn"><a href="#EzSignIn" class="headerlink" title="EzSignIn"></a>EzSignIn</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_46.jpg"></p>
+<h2 id="来自星尘的问候"><a href="#来自星尘的问候" class="headerlink" title="来自星尘的问候"></a>来自星尘的问候</h2><p>看题目是一个游戏的名字<br>来自星尘<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_47.jpg"><br>根据提示弱加密，使用stegseek爆破工具爆破<br>stegseek –crack -sf secret.jpg -wl &#x2F;usr&#x2F;share&#x2F;wordlists&#x2F;dirb&#x2F;big.txt<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_48.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_49.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_50.jpg"><br>得到一张密文图片，应该是要去官网找每个字符对应的字母或数字<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_51.jpg"><br>这里还有个工具<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_52.jpg"><br>点开script文件查看应该是让我们上传一个字体文件<br>本来想直接看表来查询对应字符的，但是不全面，就去官网再看看线索了<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_53.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_54.jpg"><br>本来想着将字体文件直接上传到给的工具里面，但是这里的格式是woff2，工具要求是ttf文件，就不转了，直接对应手敲下来。<br>对应下来flag为hgame{welc0me!}</p>
+<h2 id="希儿希儿希尔"><a href="#希儿希儿希尔" class="headerlink" title="希儿希儿希尔"></a>希儿希儿希尔</h2><p>题目给了一张花了的图片，提示修复图片<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_55.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_56.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_57.jpg"><br>Binwalk分离<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_58.jpg"></p>
+<p>到这里解密希尔密码要一个矩阵密钥<br>再次查找图片中隐藏的信息<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_59.jpg"><br>测试发现是LSB隐写<br>得到密钥为8738<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_60.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_61.jpg"><br>Hgame{DISAPPEARINTHESEAOFBUTTERFLY}</p>
+<h2 id="simple-attack"><a href="#simple-attack" class="headerlink" title="simple_attack"></a>simple_attack</h2><p><img src="/img/loading3.gif" data-original="/HGAME-week1/img_62.jpg"><br>看起来是明文攻击<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_63.jpg"><br>将没有密码的图片拉出来单独压缩<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_64.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_65.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_66.jpg"><br>e423add9 375dcd1c 1bce583e<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_67.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_68.jpg"><br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_69.jpg"><br>把data:image&#x2F;png;base64,去掉<br><img src="/img/loading3.gif" data-original="/HGAME-week1/img_71.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://jielunya.github.io">JieLun杰伦</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jielunya.github.io/2024/02/05/HGAME-week1/">https://jielunya.github.io/2024/02/05/HGAME-week1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jielunya.github.io" target="_blank">做 讓 人 远 远 聽 見 的 風</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CTF/">CTF</a></div><div class="post_share"><div class="social-share" data-image="/assets/67_updated.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/11/07/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E7%BB%95%E8%BF%87/"><img class="next-cover" src="/img/loading3.gif" data-original="/assets/66_updated.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">命令执行绕过姿势(持续更新)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/01/12/weevely%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" title="weevely工具的使用"><img class="cover" src="/img/loading3.gif" data-original="/assets/58_updated.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">weevely工具的使用</div></div></a></div><div><a href="/2022/12/24/%E5%88%A9%E7%94%A8MSF%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E6%8F%90%E6%9D%83/" title="利用MSF进行系统提权"><img class="cover" src="/img/loading3.gif" data-original="/assets/45_updated.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-24</div><div class="title">利用MSF进行系统提权</div></div></a></div><div><a href="/2022/12/19/MSF%E3%81%AEreverse_tcp%E5%8F%8D%E5%90%91%E8%BF%9E%E6%8E%A5/" title="MSFのreverse_tcp反向连接"><img class="cover" src="/img/loading3.gif" data-original="/assets/44_updated.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-19</div><div class="title">MSFのreverse_tcp反向连接</div></div></a></div><div><a href="/2022/12/16/MS08_067%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0(xp%E7%B3%BB%E7%BB%9F%E6%B8%97%E9%80%8F%EF%BC%89/" title="MS08_067漏洞复现(xp系统渗透）"><img class="cover" src="/img/loading3.gif" data-original="/assets/41_updated.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-16</div><div class="title">MS08_067漏洞复现(xp系统渗透）</div></div></a></div><div><a href="/2022/12/13/%E4%BD%BF%E7%94%A8MSF%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E6%B8%97%E9%80%8F%EF%BC%88%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D%EF%BC%89/" title="使用MSF框架进行系统渗透（永恒之蓝）"><img class="cover" src="/img/loading3.gif" data-original="/assets/35_updated.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-13</div><div class="title">使用MSF框架进行系统渗透（永恒之蓝）</div></div></a></div><div><a href="/2022/12/02/Hydra%E5%B8%B8%E7%94%A8%E7%88%86%E7%A0%B4%E8%AF%AD%E5%8F%A5/" title="Hydra常用爆破语句"><img class="cover" src="/img/loading3.gif" data-original="/assets/15_updated.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-02</div><div class="title">Hydra常用爆破语句</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading3.gif" data-original="/img/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JieLun杰伦</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Jielunya"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你又来偷偷看我啦( ´͈ ᵕ `͈ )◞♡</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WEB"><span class="toc-number">1.</span> <span class="toc-text">WEB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2048-16"><span class="toc-number">1.1.</span> <span class="toc-text">2048*16</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Select-Courses"><span class="toc-number">1.2.</span> <span class="toc-text">Select Courses</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bypass-it"><span class="toc-number">1.3.</span> <span class="toc-text">Bypass it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ezHTTP"><span class="toc-number">1.4.</span> <span class="toc-text">ezHTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jhat"><span class="toc-number">1.5.</span> <span class="toc-text">Jhat</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#REVERSE"><span class="toc-number">2.</span> <span class="toc-text">REVERSE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ezIDA"><span class="toc-number">2.1.</span> <span class="toc-text">ezIDA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ezUPX"><span class="toc-number">2.2.</span> <span class="toc-text">ezUPX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ezASM"><span class="toc-number">2.3.</span> <span class="toc-text">ezASM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EZPYC"><span class="toc-number">2.4.</span> <span class="toc-text">EZPYC</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CRYPTO"><span class="toc-number">3.</span> <span class="toc-text">CRYPTO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ezRSA"><span class="toc-number">3.1.</span> <span class="toc-text">ezRSA</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MISC"><span class="toc-number">4.</span> <span class="toc-text">MISC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SignIn"><span class="toc-number">4.1.</span> <span class="toc-text">SignIn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EzSignIn"><span class="toc-number">4.2.</span> <span class="toc-text">EzSignIn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A5%E8%87%AA%E6%98%9F%E5%B0%98%E7%9A%84%E9%97%AE%E5%80%99"><span class="toc-number">4.3.</span> <span class="toc-text">来自星尘的问候</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%8C%E5%84%BF%E5%B8%8C%E5%84%BF%E5%B8%8C%E5%B0%94"><span class="toc-number">4.4.</span> <span class="toc-text">希儿希儿希尔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#simple-attack"><span class="toc-number">4.5.</span> <span class="toc-text">simple_attack</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/05/HGAME-week1/" title="HGAME-WEEK1"><img src="/img/loading3.gif" data-original="/assets/67_updated.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HGAME-WEEK1"/></a><div class="content"><a class="title" href="/2024/02/05/HGAME-week1/" title="HGAME-WEEK1">HGAME-WEEK1</a><time datetime="2024-02-05T13:13:59.859Z" title="发表于 2024-02-05 21:13:59">2024-02-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/07/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E7%BB%95%E8%BF%87/" title="命令执行绕过姿势(持续更新)"><img src="/img/loading3.gif" data-original="/assets/66_updated.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="命令执行绕过姿势(持续更新)"/></a><div class="content"><a class="title" href="/2023/11/07/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E7%BB%95%E8%BF%87/" title="命令执行绕过姿势(持续更新)">命令执行绕过姿势(持续更新)</a><time datetime="2023-11-07T06:45:34.446Z" title="发表于 2023-11-07 14:45:34">2023-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/04/Vulhub%E7%AC%94%E8%AE%B0/" title="Vulhub笔记"><img src="/img/loading3.gif" data-original="/assets/64_updated.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vulhub笔记"/></a><div class="content"><a class="title" href="/2023/08/04/Vulhub%E7%AC%94%E8%AE%B0/" title="Vulhub笔记">Vulhub笔记</a><time datetime="2023-08-04T13:30:40.650Z" title="发表于 2023-08-04 21:30:40">2023-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/13/2023%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E4%B8%8E%E8%AF%84%E4%BC%B0%E6%A0%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="2023信息安全管理与评估样题笔记"><img src="/img/loading3.gif" data-original="/assets/56_updated.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023信息安全管理与评估样题笔记"/></a><div class="content"><a class="title" href="/2023/03/13/2023%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E4%B8%8E%E8%AF%84%E4%BC%B0%E6%A0%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="2023信息安全管理与评估样题笔记">2023信息安全管理与评估样题笔记</a><time datetime="2023-03-13T02:14:21.393Z" title="发表于 2023-03-13 10:14:21">2023-03-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/11/HCIP-Datacom-Core%20Technology%20H12-821%20%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9C%89%E7%A9%BA%E5%B0%B1%E6%9B%B4%EF%BC%8C%E7%9B%AE%E5%89%8D70%E9%A2%98%EF%BC%89/" title="HCIP-Datacom-Core Technology H12-821 笔记（持续更新、目前70题）"><img src="/img/loading3.gif" data-original="/assets/62_updated.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HCIP-Datacom-Core Technology H12-821 笔记（持续更新、目前70题）"/></a><div class="content"><a class="title" href="/2023/03/11/HCIP-Datacom-Core%20Technology%20H12-821%20%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9C%89%E7%A9%BA%E5%B0%B1%E6%9B%B4%EF%BC%8C%E7%9B%AE%E5%89%8D70%E9%A2%98%EF%BC%89/" title="HCIP-Datacom-Core Technology H12-821 笔记（持续更新、目前70题）">HCIP-Datacom-Core Technology H12-821 笔记（持续更新、目前70题）</a><time datetime="2023-03-11T05:17:59.066Z" title="发表于 2023-03-11 13:17:59">2023-03-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By JieLun杰伦</div><a href="https://jielunya.github.io/">| 回到首页 |</a><span class="footer-separator"></span></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lYh5FaNQ1BZ91AnnMwXvpfdH-gzGzoHsz',
+      appKey: 'WcwABcRIFzBCppEfa2FauntP',
+      avatar: 'monsterid',
+      serverURLs: 'https://lyh5fanq.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/fairyDustCursor.js"></script><script async data-pjax src="/js/sky.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="/js/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end -->
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
